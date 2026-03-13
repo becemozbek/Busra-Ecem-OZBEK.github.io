@@ -312,8 +312,6 @@ h1, h2, h3{
 .contact-container button {
   width: 100%;
   padding: 14px 20px;
-  background: #3498db;
-  color: white;
   border: none;
   border-radius: 6px;
   font-size: 16px;
@@ -321,6 +319,11 @@ h1, h2, h3{
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 10px;
+}
+
+.form-actions button {
+  width: auto;
+  margin-top: 0;
 }
 
 .contact-container button:hover {
