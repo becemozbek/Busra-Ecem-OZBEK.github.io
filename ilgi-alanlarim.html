@@ -1,72 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Büşra Ecem Özbek - İlgi Alanlarım</title>
-  
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>B. Ecem ÖZBEK – İlgi Alanlarım</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css" />
 </head>
-
 <body>
-  <div class="container">
-    
-    <header>
-      <h1>Büşra Ecem ÖZBEK</h1>
-      <p class="subtitle">Bilgisayar Mühendisliği | Web Programlama Öğrencisi</p>
-      
-      <nav>
-        <ul>
-          <li><a href="index.html">Ana Sayfa</a></li>
-          <li><a href="hakkimda.html">Hakkımda</a></li>
-          <li><a href="ilgi-alanlarim.html">İlgi Alanlarım</a></li>
-          <li><a href="iletisim.html">İletişim</a></li>
-        </ul>
-      </nav>
-    </header>
+  <div class="wrapper-page">
 
-    <main>
-      <h2>İlgi Alanlarım</h2>
-      <p class="intro">Teknoloji ve kişisel ilgi alanlarım</p>
-
-      <h3>Teknoloji Alanındaki İlgi Alanlarım</h3>
-      <ul class="info-list">
-        <li>Web geliştirme</li>
-        <li>Yapay zeka uygulamaları</li>
-        <li>Mobil uygulama geliştirme</li>
-        <li>Öğrenmek istediğim teknolojiler
-          <ul class="info-list" style="margin-left: 20px;">
-            <li>React</li>
-            <li>ASP.NET Core</li>
-            <li>Flutter</li>
-          </ul>
-        </li>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">B. Ecem ÖZBEK</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="hakkimda.html">Hakkımda</a></li>
+        <li><a href="ilgi-alanlarim.html" class="active">İlgi Alanlarım</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
       </ul>
+    </nav>
 
-      <h3>Günlük Çalışma Rutinim</h3>
-      <ol>
-        <li>Ders materyallerini gözden geçirmek</li>
-        <li>Kodlama pratiği yapmak</li>
-        <li>Yeni teknolojileri araştırmak</li>
-        <li>Proje geliştirmek</li>
-      </ol>
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <span class="page-hero-badge">İlgi Alanlarım</span>
+      <h1>Teknoloji ve <em>Kişisel İlgiler</em></h1>
+      <p>Yazılım, web geliştirme ve öğrenmek istediğim teknolojiler</p>
+    </div>
 
-      <h3>Web Teknolojileri Sözlüğü</h3>
-      
-      <p><strong>HTML</strong><br>
-      Web sayfalarının iskeletini oluşturan işaretleme dilidir.</p>
+    <!-- İÇERİK -->
+    <main class="page-main">
+      <div class="page-inner">
 
-      <p><strong>CSS</strong><br>
-      Web sayfalarının görsel tasarımını düzenlemek için kullanılır.</p>
+        <!-- Teknoloji İlgi Alanları -->
+        <div class="page-section">
+          <div class="page-section-title">
+            <span class="section-icon" style="background:#e0e7ff">💻</span>
+            <h3>Teknoloji Alanındaki İlgi Alanlarım</h3>
+          </div>
+          <ul class="page-list">
+            <li>Web geliştirme</li>
+            <li>Yapay zeka uygulamaları</li>
+            <li>Mobil uygulama geliştirme</li>
+            <li>
+              Öğrenmek istediğim teknolojiler
+              <ul class="page-sub-list">
+                <li>React</li>
+                <li>ASP.NET Core</li>
+                <li>Flutter</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
 
-      <p><strong>JavaScript</strong><br>
-      Web sayfalarına etkileşim kazandıran programlama dilidir.</p>
+        <!-- Günlük Rutin -->
+        <div class="page-section">
+          <div class="page-section-title">
+            <span class="section-icon" style="background:#d1fae5">📅</span>
+            <h3>Günlük Çalışma Rutinim</h3>
+          </div>
+          <ol class="page-ol">
+            <li>Ders materyallerini gözden geçirmek</li>
+            <li>Kodlama pratiği yapmak</li>
+            <li>Yeni teknolojileri araştırmak</li>
+            <li>Proje geliştirmek</li>
+          </ol>
+        </div>
 
-      <p><a href="index.html">← Ana sayfaya geri dön</a></p>
+        <!-- Teknoloji Sözlüğü -->
+        <div class="page-section">
+          <div class="page-section-title">
+            <span class="section-icon" style="background:#fef3c7">📖</span>
+            <h3>Web Teknolojileri Sözlüğü</h3>
+          </div>
+          <div class="dict-item">
+            <div class="dict-term">HTML</div>
+            <div class="dict-def">Web sayfalarının iskeletini oluşturan işaretleme dilidir.</div>
+          </div>
+          <div class="dict-item">
+            <div class="dict-term">CSS</div>
+            <div class="dict-def">Web sayfalarının görsel tasarımını düzenlemek için kullanılır.</div>
+          </div>
+          <div class="dict-item">
+            <div class="dict-term">JavaScript</div>
+            <div class="dict-def">Web sayfalarına etkileşim kazandıran programlama dilidir.</div>
+          </div>
+        </div>
+
+      </div>
     </main>
 
-    <footer>
-      <p>© 2026 Büşra Ecem ÖZBEK | Web Programlama</p>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <span class="footer-dot"></span>
+      <p>© 2026 – Büşra Ecem ÖZBEK | Web Programlama</p>
+      <span class="footer-dot"></span>
     </footer>
 
   </div>

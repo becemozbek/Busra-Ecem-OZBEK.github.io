@@ -1,134 +1,162 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Büşra Ecem Özbek - İletişim</title>
-  
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>B. Ecem ÖZBEK – İletişim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css" />
 </head>
-
 <body>
-  <div class="container">
-    
-    <header>
-      <h1>Büşra Ecem ÖZBEK</h1>
-      <p class="subtitle">Bilgisayar Mühendisliği | Web Programlama Öğrencisi</p>
-      
-      <nav>
-        <ul>
-          <li><a href="index.html">Ana Sayfa</a></li>
-          <li><a href="hakkimda.html">Hakkımda</a></li>
-          <li><a href="ilgi-alanlarim.html">İlgi Alanlarım</a></li>
-          <li><a href="iletisim.html">İletişim</a></li>
-        </ul>
-      </nav>
-    </header>
+  <div class="wrapper-page">
 
-    <main>
-      <h2>İletişim</h2>
-      <p class="intro">Benimle iletişime geçebileceğiniz bilgiler</p>
-
-      <h3>İletişim Bilgilerim</h3>
-      <ul class="info-list">
-        <li>📧 E-posta: <a href="mailto:ecemozbek@marun.edu.tr">ecemozbek@marun.edu.tr</a></li>
-        <li>📱 Telefon: <a href="tel:+905551112233">+90 555 111 22 33</a></li>
-        <li>💻 GitHub: <a href="https://github.com/becemozbek/Busra-Ecem-OZBEK.github.io" target="_blank">GitHub Profilim</a></li>
-        <li>🔗 LinkedIn: <a href="https://linkedin.com/" target="_blank">LinkedIn Profilim</a></li>
-      </ul>
-
-      <div class="contact-container">
-        <h2>İletişim Formu</h2>
-        <form>
-          <div class="form-group">
-            <label for="ad-soyad">Ad Soyad</label>
-            <input type="text" id="ad-soyad" name="ad-soyad" placeholder="Örn: Büşra Ecem Özbek" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="email">E-posta</label>
-            <input type="email" id="email" name="email" placeholder="Örn: ecemozbek@marun.edu.tr" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="konu">Konu</label>
-            <select id="konu" name="konu" required>
-              <option value="">Seçiniz</option>
-              <option value="ozgecmis">Özgeçmiş</option>
-              <option value="cv">CV</option>
-              <option value="fotograf">Fotoğraf Yükleme</option>
-              <option value="dosya-sec">Dosya Seç</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label for="mesaj">Mesaj</label>
-            <textarea id="mesaj" name="mesaj" rows="5" required></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>İletişim Tercihi</label>
-            <div class="radio-group">
-              <div class="radio-option">
-                <input type="radio" id="email-tercihi" name="iletisim-tercihi" value="email" required>
-                <label for="email-tercihi">E-posta yolu ile</label>
-              </div>
-              <div class="radio-option">
-                <input type="radio" id="telefon-tercihi" name="iletisim-tercihi" value="telefon" required>
-                <label for="telefon-tercihi">Telefon yolu ile</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="sifre">Başvuru Takip Şifresi</label>
-            <input type="text" id="sifre" name="sifre" placeholder="Örn: BT2026001" required>
-          </div>
-
-          <div class="form-group">
-            <label>İlgi Alanları / Yetenekler</label>
-            <div class="checkbox-group">
-              <div class="checkbox-option">
-                <input type="checkbox" id="html" name="yetenekler" value="html">
-                <label for="html">HTML</label>
-              </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="css" name="yetenekler" value="css">
-                <label for="css">CSS</label>
-              </div>
-              <div class="checkbox-option">
-                <input type="checkbox" id="algoritma" name="yetenekler" value="algoritma">
-                <label for="algoritma">Algoritma</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="dosya">Dosya Yükle</label>
-            <input type="file" id="dosya" name="dosya">
-          </div>
-
-          <div class="form-actions">
-            <button type="submit" class="btn-gonder">Gönder</button>
-            <button type="reset" class="btn-temizle">Temizle</button>
-          </div>
-        </form>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">B. Ecem ÖZBEK</span>
       </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="hakkimda.html">Hakkımda</a></li>
+        <li><a href="ilgi-alanlarim.html">İlgi Alanlarım</a></li>
+        <li><a href="iletisim.html" class="active">İletişim</a></li>
+      </ul>
+    </nav>
 
-      <h2>Sık Sorulan Sorular</h2>
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <span class="page-hero-badge">İletişim</span>
+      <h1>Benimle <em>İletişime Geç</em></h1>
+      <p>İletişim bilgilerim ve mesaj formu</p>
+    </div>
 
-      <h3>Mesajlara ne kadar sürede dönüş yapıyorsunuz?</h3>
-      <p>Genellikle 24 saat içinde e-posta yoluyla dönüş yapıyorum.</p>
+    <!-- İÇERİK -->
+    <main class="page-main">
+      <div class="page-inner">
 
-      <h3>Projelerde iş birliğine açık mısınız?</h3>
-      <p>Evet, özellikle eğitim ve açık kaynak projelerinde iş birliklerine açığım.</p>
+        <!-- İletişim Bilgileri -->
+        <div class="page-section">
+          <div class="page-section-title">
+            <span class="section-icon" style="background:#e0e7ff">📬</span>
+            <h3>İletişim Bilgilerim</h3>
+          </div>
+          <ul class="contact-info-list">
+            <li>📧 <a href="mailto:ecemozbek@marun.edu.tr">ecemozbek@marun.edu.tr</a></li>
+            <li>📱 <a href="tel:+905551112233">+90 555 111 22 33</a></li>
+            <li>💻 <a href="https://github.com/becemozbek/Busra-Ecem-OZBEK.github.io" target="_blank">GitHub Profilim</a></li>
+            <li>🔗 <a href="https://linkedin.com/" target="_blank">LinkedIn Profilim</a></li>
+          </ul>
+        </div>
 
-      <p><a href="index.html">← Ana sayfaya geri dön</a></p>
+        <!-- İletişim Formu -->
+        <div class="page-section">
+          <div class="page-section-title">
+            <span class="section-icon" style="background:#d1fae5">✉️</span>
+            <h3>İletişim Formu</h3>
+          </div>
+          <form class="form-new">
+            <div class="form-group-new">
+              <label for="ad-soyad">Ad Soyad</label>
+              <input type="text" id="ad-soyad" name="ad-soyad" placeholder="Örn: Büşra Ecem Özbek" required>
+            </div>
+
+            <div class="form-group-new">
+              <label for="email">E-posta</label>
+              <input type="email" id="email" name="email" placeholder="Örn: ecemozbek@marun.edu.tr" required>
+            </div>
+
+            <div class="form-group-new">
+              <label for="konu">Konu</label>
+              <select id="konu" name="konu" required>
+                <option value="">Seçiniz</option>
+                <option value="ozgecmis">Özgeçmiş</option>
+                <option value="cv">CV</option>
+                <option value="fotograf">Fotoğraf Yükleme</option>
+                <option value="dosya-sec">Dosya Seç</option>
+              </select>
+            </div>
+
+            <div class="form-group-new">
+              <label for="mesaj">Mesaj</label>
+              <textarea id="mesaj" name="mesaj" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group-new">
+              <label>İletişim Tercihi</label>
+              <div class="radio-group-new">
+                <div class="radio-option-new">
+                  <input type="radio" id="email-tercihi" name="iletisim-tercihi" value="email" required>
+                  <label for="email-tercihi">E-posta yolu ile</label>
+                </div>
+                <div class="radio-option-new">
+                  <input type="radio" id="telefon-tercihi" name="iletisim-tercihi" value="telefon">
+                  <label for="telefon-tercihi">Telefon yolu ile</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group-new">
+              <label for="sifre">Başvuru Takip Şifresi</label>
+              <input type="text" id="sifre" name="sifre" placeholder="Örn: BT2026001" required>
+            </div>
+
+            <div class="form-group-new">
+              <label>İlgi Alanları / Yetenekler</label>
+              <div class="checkbox-group-new">
+                <div class="checkbox-option-new">
+                  <input type="checkbox" id="html" name="yetenekler" value="html">
+                  <label for="html">HTML</label>
+                </div>
+                <div class="checkbox-option-new">
+                  <input type="checkbox" id="css" name="yetenekler" value="css">
+                  <label for="css">CSS</label>
+                </div>
+                <div class="checkbox-option-new">
+                  <input type="checkbox" id="algoritma" name="yetenekler" value="algoritma">
+                  <label for="algoritma">Algoritma</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group-new">
+              <label for="dosya">Dosya Yükle</label>
+              <input type="file" id="dosya" name="dosya">
+            </div>
+
+            <div class="form-actions-new">
+              <button type="submit" class="btn-submit">Gönder</button>
+              <button type="reset" class="btn-reset-new">Temizle</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- SSS -->
+        <div class="page-section">
+          <div class="page-section-title">
+            <span class="section-icon" style="background:#fef3c7">❓</span>
+            <h3>Sık Sorulan Sorular</h3>
+          </div>
+          <div class="faq-item">
+            <h4>Mesajlara ne kadar sürede dönüş yapıyorsunuz?</h4>
+            <p>Genellikle 24 saat içinde e-posta yoluyla dönüş yapıyorum.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Projelerde iş birliğine açık mısınız?</h4>
+            <p>Evet, özellikle eğitim ve açık kaynak projelerinde iş birliklerine açığım.</p>
+          </div>
+        </div>
+
+      </div>
     </main>
 
-    <footer>
-      <p>© 2026 Büşra Ecem ÖZBEK | Web Programlama</p>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <span class="footer-dot"></span>
+      <p>© 2026 – Büşra Ecem ÖZBEK | Web Programlama</p>
+      <span class="footer-dot"></span>
     </footer>
 
   </div>

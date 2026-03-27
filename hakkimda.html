@@ -1,67 +1,103 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Büşra Ecem Özbek - Hakkımda</title>
-  
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>B. Ecem ÖZBEK – Hakkımda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css" />
 </head>
-
 <body>
-  <div class="container">
-    
-    <header>
-      <h1>Büşra Ecem ÖZBEK</h1>
-      <p class="subtitle">Bilgisayar Mühendisliği | Web Programlama Öğrencisi</p>
-      
-      <nav>
-        <ul>
-          <li><a href="index.html">Ana Sayfa</a></li>
-          <li><a href="hakkimda.html">Hakkımda</a></li>
-          <li><a href="ilgi-alanlarim.html">İlgi Alanlarım</a></li>
-          <li><a href="iletisim.html">İletişim</a></li>
-        </ul>
-      </nav>
-    </header>
+  <div class="wrapper-page">
 
-    <main>
-      <h2>Hakkımda</h2>
-      <p class="intro">Kendimi ve hedeflerimi tanıttığım sayfa</p>
-
-      <h3>Ben Kimim?</h3>
-      <p>
-        Merhaba, ben <strong>Bilgisayar Mühendisliği öğrencisiyim.</strong> 
-        Web teknolojilerine ilgi duyuyor ve kendimi bu alanda geliştirmeyi hedefliyorum.
-      </p>
-      <p>
-        Özellikle <em>frontend geliştirme</em> ve kullanıcı deneyimi konularında çalışmalar yapmayı seviyorum.
-      </p>
-
-      <h3>Eğitim Bilgilerim</h3>
-      <ul class="info-list">
-        <li>Marmara Üniversitesi</li>
-        <li>Bilgisayar Mühendisliği</li>
-        <li>Web Programlama dersi</li>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">B. Ecem ÖZBEK</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="hakkimda.html" class="active">Hakkımda</a></li>
+        <li><a href="ilgi-alanlarim.html">İlgi Alanlarım</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
       </ul>
+    </nav>
 
-      <h3>Motivasyonum</h3>
-      <p>
-        <q>İyi yazılmış bir web sitesi, hem kullanıcıyı hem geliştiriciyi mutlu eder.</q>
-      </p>
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <span class="page-hero-badge">Hakkımda</span>
+      <h1>Büşra Ecem <em>ÖZBEK</em></h1>
+      <p>Bilgisayar Mühendisliği | Web Programlama Öğrencisi</p>
+    </div>
 
-      <h3>Hedeflerim</h3>
-      <ol>
-        <li>Modern web teknolojilerini öğrenmek</li>
-        <li>Responsive tasarım geliştirmek</li>
-        <li>ASP.NET Core ile dinamik uygulamalar yazmak</li>
-      </ol>
+    <!-- İÇERİK -->
+    <main class="page-main">
+      <div class="page-inner">
 
-      <p><a href="index.html">← Ana sayfaya geri dön</a></p>
+        <!-- Ben Kimim -->
+        <div class="page-section">
+          <div class="page-section-title">
+            <span class="section-icon" style="background:#e0e7ff">👤</span>
+            <h3>Ben Kimim?</h3>
+          </div>
+          <p>
+            Merhaba, ben <strong>Bilgisayar Mühendisliği öğrencisiyim.</strong>
+            Web teknolojilerine ilgi duyuyor ve kendimi bu alanda geliştirmeyi hedefliyorum.
+          </p>
+          <p>
+            Özellikle <em>frontend geliştirme</em> ve kullanıcı deneyimi konularında
+            çalışmalar yapmayı seviyorum.
+          </p>
+        </div>
+
+        <!-- Eğitim -->
+        <div class="page-section">
+          <div class="page-section-title">
+            <span class="section-icon" style="background:#d1fae5">🎓</span>
+            <h3>Eğitim Bilgilerim</h3>
+          </div>
+          <ul class="page-list">
+            <li>Marmara Üniversitesi</li>
+            <li>Bilgisayar Mühendisliği</li>
+            <li>Web Programlama dersi</li>
+          </ul>
+        </div>
+
+        <!-- Motivasyon -->
+        <div class="page-section">
+          <div class="page-section-title">
+            <span class="section-icon" style="background:#fef3c7">💡</span>
+            <h3>Motivasyonum</h3>
+          </div>
+          <blockquote class="page-quote">
+            "İyi yazılmış bir web sitesi, hem kullanıcıyı hem geliştiriciyi mutlu eder."
+          </blockquote>
+        </div>
+
+        <!-- Hedefler -->
+        <div class="page-section">
+          <div class="page-section-title">
+            <span class="section-icon" style="background:#ede9fe">🎯</span>
+            <h3>Hedeflerim</h3>
+          </div>
+          <ol class="page-ol">
+            <li>Modern web teknolojilerini öğrenmek</li>
+            <li>Responsive tasarım geliştirmek</li>
+            <li>ASP.NET Core ile dinamik uygulamalar yazmak</li>
+          </ol>
+        </div>
+
+      </div>
     </main>
 
-    <footer>
-      <p>© 2026 Büşra Ecem ÖZBEK | Web Programlama</p>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <span class="footer-dot"></span>
+      <p>© 2026 – Büşra Ecem ÖZBEK | Web Programlama</p>
+      <span class="footer-dot"></span>
     </footer>
 
   </div>

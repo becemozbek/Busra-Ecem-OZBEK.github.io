@@ -3,144 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Büşra Ecem Özbek - Hafta 4: Flexbox</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="flexbox.css">
+  <title>B. Ecem ÖZBEK – FlexLab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css" />
 </head>
 <body>
-<div class="container">
+  <div class="wrapper">
 
-  <header>
-    <h1>Büşra Ecem ÖZBEK</h1>
-    <p class="subtitle">Bilgisayar Mühendisliği | Web Programlama Öğrencisi</p>
-    <nav>
-      <ul>
+    <!-- 1) NAVBAR: flex row, justify-content:space-between, align-items:center, 10vh -->
+    <nav class="navbar">
+      <div class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">B. Ecem ÖZBEK</span>
+      </div>
+      <ul class="nav-links">
         <li><a href="index.html">Ana Sayfa</a></li>
         <li><a href="hakkimda.html">Hakkımda</a></li>
         <li><a href="ilgi-alanlarim.html">İlgi Alanlarım</a></li>
         <li><a href="iletisim.html">İletişim</a></li>
-        <li><a href="Flexbox.html" class="nav-new nav-active">Hafta 4</a></li>
       </ul>
     </nav>
-  </header>
 
-  <main class="fb-main">
-
-    <div class="fb-page-title">
-      <h2>Hafta 4 – Flexbox Ödevi</h2>
-      <p class="intro">CSS Flexbox'ın temel kavramlarını içeren sayfa düzeni örneği.</p>
-    </div>
-
-    <!-- 1) NAVBAR DEMO -->
-    <h2>1 — Navbar</h2>
-    <p class="fb-desc"><code>justify-content: space-between</code> · <code>align-items: center</code> · <code>height: 10vh</code></p>
-    <div class="fb-demo">
-      <div class="fb-wrapper">
-
-        <nav class="fb-navbar">
-          <div class="fb-logo">LOGO</div>
-          <ul class="fb-nav-links">
-            <li><a href="#">Ana Sayfa</a></li>
-            <li><a href="#">Hakkında</a></li>
-            <li><a href="#">Dersler</a></li>
-            <li><a href="#">İletişim</a></li>
-          </ul>
-        </nav>
-
-        <!-- 2) HERO -->
-        <section class="fb-hero">
-          <div class="fb-hero-text">
-            <h3>Hero Başlık</h3>
-            <p>Açıklama metni buraya gelir.</p>
-            <button class="fb-btn">Buton</button>
-          </div>
-          <div class="fb-hero-img">
-            <span>🖼</span>
-            <p>Görsel Alanı</p>
-          </div>
-        </section>
-
-        <!-- 3) KARTLAR -->
-        <section class="fb-cards-section">
-          <div class="fb-cards-header">
-            <span class="fb-section-label">3 — Kartlar Bölümü</span>
-            <span class="fb-tag">flex-wrap · gap</span>
-          </div>
-          <div class="fb-cards">
-            <div class="fb-card"><h4>Kart Başlığı</h4><p>Kısa açıklama metni.</p><button class="fb-btn fb-btn-sm">Buton</button></div>
-            <div class="fb-card"><h4>Kart Başlığı</h4><p>Kısa açıklama metni.</p><button class="fb-btn fb-btn-sm">Buton</button></div>
-            <div class="fb-card"><h4>Kart Başlığı</h4><p>Kısa açıklama metni.</p><button class="fb-btn fb-btn-sm">Buton</button></div>
-            <div class="fb-card"><h4>Kart Başlığı</h4><p>Kısa açıklama metni.</p><button class="fb-btn fb-btn-sm">Buton</button></div>
-            <div class="fb-card"><h4>Kart Başlığı</h4><p>Kısa açıklama metni.</p><button class="fb-btn fb-btn-sm">Buton</button></div>
-            <div class="fb-card"><h4>Kart Başlığı</h4><p>Kısa açıklama metni.</p><button class="fb-btn fb-btn-sm">Buton</button></div>
-          </div>
-        </section>
-
-        <!-- 4) FLEX GROW -->
-        <section class="fb-grow-section">
-          <div class="fb-cards-header">
-            <span class="fb-section-label">4 — Flex Grow Uygulama</span>
-            <span class="fb-tag">flex-grow · align-items: stretch · 20vh</span>
-          </div>
-          <div class="fb-grow">
-            <div class="fb-grow-box fb-grow-blue">
-              <strong>1 Kutu</strong>
-              <code>flex-grow: 1</code>
-              <button class="fb-btn fb-btn-blue">Buton</button>
-            </div>
-            <div class="fb-grow-box fb-grow-green">
-              <strong>2 Kutu</strong>
-              <code>flex-grow: 2</code>
-              <button class="fb-btn fb-btn-green">Buton</button>
-            </div>
-            <div class="fb-grow-box fb-grow-amber">
-              <strong>3 Kutu</strong>
-              <code>flex-grow: 1</code>
-              <button class="fb-btn fb-btn-amber">Buton</button>
-            </div>
-          </div>
-        </section>
-
-        <!-- 5) FOOTER -->
-        <footer class="fb-footer">
-          <p>© 2026 – Temel Flexbox Örneği</p>
-        </footer>
-
-      </div><!-- /fb-wrapper -->
-    </div><!-- /fb-demo -->
-
-    <!-- CSS KONTROL LİSTESİ -->
-    <h2>CSS Kontrol Listesi</h2>
-    <div class="two-column-section">
-      <div class="column-left">
-        <h3>Kullanılan Flexbox Özellikleri</h3>
-        <ul class="info-list">
-          <li>Ana yapı: <code>100vh</code> yükseklik</li>
-          <li>En az 3 alanda <code>display: flex</code></li>
-          <li><code>justify-content: space-between</code></li>
-          <li><code>justify-content: center</code></li>
-          <li><code>align-items: center</code></li>
-          <li><code>align-items: stretch</code></li>
-        </ul>
+    <!-- 2) HERO: flex-direction:row, align-items:stretch, 30vh -->
+    <section class="hero">
+      <div class="hero-text">
+        <span class="hero-badge">Flexbox Temelleri</span>
+        <h1>Modern CSS<br><em>Düzeni Öğren</em></h1>
+        <p>Flexbox ile responsive ve dinamik sayfa düzenleri oluşturmayı adım adım keşfet.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary">Başla</button>
+          <button class="btn btn-ghost">Daha fazla →</button>
+        </div>
       </div>
-      <div class="column-right">
-        <h3>Diğer Zorunlu Özellikler</h3>
-        <ol>
-          <li><code>flex-direction: row</code> kullanıldı</li>
-          <li><code>flex-direction: column</code> kullanıldı</li>
-          <li><code>flex-grow: 1 – 2 – 1</code> uygulandı</li>
-          <li><code>flex-wrap: wrap</code> ile sarma</li>
-          <li>Tüm yükseklikler <code>vh</code> ile</li>
-          <li><code>gap</code> ile boşluk kontrolü</li>
-        </ol>
+      <div class="hero-visual">
+        <div class="visual-grid">
+          <div class="vg-block vg-tall"></div>
+          <div class="vg-col">
+            <div class="vg-block vg-wide"></div>
+            <div class="vg-row">
+              <div class="vg-block vg-sm"></div>
+              <div class="vg-block vg-sm accent"></div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-  </main>
+    <!-- 3) KARTLAR: display:flex, flex-wrap:wrap, gap, 30vh -->
+    <section class="cards-section">
+      <div class="section-header">
+        <h2>Dersler</h2>
+        <span class="section-tag">6 modül</span>
+      </div>
+      <div class="cards-container">
+        <div class="card">
+          <div class="card-icon" style="background:#e0e7ff">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18"/></svg>
+          </div>
+          <h3>Display Flex</h3>
+          <p>Temel flex konteyner kavramları</p>
+          <button class="btn btn-card">Başla</button>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#fce7f3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v20M2 12h20"/></svg>
+          </div>
+          <h3>Justify Content</h3>
+          <p>Ana eksen hizalama yöntemleri</p>
+          <button class="btn btn-card">Başla</button>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#d1fae5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </div>
+          <h3>Align Items</h3>
+          <p>Çapraz eksen ve stretch</p>
+          <button class="btn btn-card">Başla</button>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#fef3c7">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+          </div>
+          <h3>Flex Direction</h3>
+          <p>Row ve column yön kontrolü</p>
+          <button class="btn btn-card">Başla</button>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#ede9fe">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+          <h3>Flex Grow</h3>
+          <p>Esnek genişleme oranları</p>
+          <button class="btn btn-card">Başla</button>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#fee2e2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          </div>
+          <h3>Flex Wrap</h3>
+          <p>Çok satırlı flex düzeni</p>
+          <button class="btn btn-card">Başla</button>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    <p>© 2026 Büşra Ecem ÖZBEK | Web Programlama</p>
-  </footer>
-</div>
+    <!-- 4) FLEX GROW: flex-grow 1-2-1, align-items:stretch, 20vh -->
+    <section class="grow-section">
+      <div class="section-header compact">
+        <h2>Flex Grow — Canlı Demo</h2>
+        <div class="tag-row">
+          <span class="code-tag">flex-grow</span>
+          <span class="code-tag">align-items: stretch</span>
+          <span class="code-tag">20vh</span>
+        </div>
+      </div>
+      <div class="grow-container">
+        <div class="grow-box box-blue">
+          <span class="grow-label">1 Kutu</span>
+          <code>flex-grow: 1</code>
+          <button class="btn-grow btn-grow-blue">Buton</button>
+        </div>
+        <div class="grow-box box-green">
+          <span class="grow-label">2 Kutu</span>
+          <code>flex-grow: 2</code>
+          <button class="btn-grow btn-grow-green">Buton</button>
+        </div>
+        <div class="grow-box box-amber">
+          <span class="grow-label">3 Kutu</span>
+          <code>flex-grow: 1</code>
+          <button class="btn-grow btn-grow-amber">Buton</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) FOOTER: justify-content:center, align-items:center, 10vh -->
+    <footer class="footer">
+      <span class="footer-dot"></span>
+      <p>© 2026 – Büşra Ecem ÖZBEK | Web Programlama</p>
+      <span class="footer-dot"></span>
+    </footer>
+
+  </div>
 </body>
 </html>
