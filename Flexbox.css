@@ -1,0 +1,315 @@
+/* ================================================
+   flexbox.css  —  Hafta 4 Flexbox sayfasına özel
+   style.css ile birlikte kullanılır
+   ================================================ */
+
+/* Hafta 4 nav linki */
+nav a.nav-new {
+  background: #e8f4fd;
+  color: #2980b9;
+  border: 1px solid #aed6f1;
+}
+nav a.nav-new:hover,
+nav a.nav-active {
+  background: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+/* Sayfa başlığı */
+.fb-page-title {
+  margin-bottom: 10px;
+}
+
+/* Bölüm açıklama satırı */
+.fb-desc {
+  font-size: 13px;
+  color: #888;
+  margin: -10px 0 12px 0;
+}
+.fb-desc code {
+  background: #ecf0f1;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #2980b9;
+}
+
+/* Demo çerçevesi */
+.fb-demo {
+  border: 2px dashed #d5e8f7;
+  border-radius: 10px;
+  background: #f8fbff;
+  padding: 14px;
+  margin: 0 0 35px 0;
+}
+
+/* ---- İÇ FLEXBOX YAPISI (100vh wrapper) ---- */
+.fb-wrapper {
+  display: flex;
+  flex-direction: column;   /* flex-direction: column */
+  height: 100vh;            /* 100vh */
+  background: #f0f2f5;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #dde3ea;
+}
+
+/* 1) NAVBAR */
+.fb-navbar {
+  display: flex;                    /* display:flex */
+  flex-direction: row;              /* flex-direction:row */
+  justify-content: space-between;   /* justify-content:space-between */
+  align-items: center;              /* align-items:center */
+  height: 10vh;                     /* height:10vh */
+  background: #2c3e50;
+  padding: 0 20px;
+  flex-shrink: 0;
+}
+
+.fb-logo {
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1.5px;
+}
+
+.fb-nav-links {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fb-nav-links a {
+  text-decoration: none;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.8rem;
+  padding: 5px 12px;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+.fb-nav-links a:hover {
+  background: rgba(255,255,255,0.12);
+  color: white;
+}
+
+/* 2) HERO */
+.fb-hero {
+  display: flex;                    /* display:flex */
+  flex-direction: row;              /* flex-direction:row */
+  justify-content: space-between;   /* justify-content:space-between */
+  align-items: stretch;             /* align-items:stretch */
+  height: 30vh;                     /* height:30vh */
+  background: white;
+  padding: 16px 20px;
+  gap: 16px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #e8ecf0;
+}
+
+.fb-hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.fb-hero-text h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.fb-hero-text p {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+
+.fb-hero-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 42%;
+  background: #e8ecf0;
+  border-radius: 8px;
+  color: #aaa;
+  font-size: 0.78rem;
+  gap: 4px;
+}
+.fb-hero-img span { font-size: 1.8rem; opacity: 0.5; }
+
+/* 3) KARTLAR */
+.fb-cards-section {
+  background: #f0f2f5;
+  padding: 12px 20px;
+  flex-shrink: 0;
+}
+
+.fb-cards-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.fb-section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fb-tag {
+  font-size: 0.7rem;
+  color: #888;
+  background: white;
+  border: 1px solid #dde3ea;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+.fb-cards {
+  display: flex;          /* display:flex */
+  flex-direction: row;    /* flex-direction:row */
+  flex-wrap: wrap;        /* flex-wrap:wrap */
+  gap: 8px;               /* gap */
+  align-items: stretch;
+}
+
+.fb-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  border: 1px solid #e0e5ec;
+  border-radius: 8px;
+  padding: 10px 12px;
+  flex: 1 1 calc(16.6% - 8px);
+  min-width: 110px;
+  gap: 5px;
+  transition: box-shadow 0.2s;
+}
+.fb-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.08); }
+
+.fb-card h4 {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+}
+.fb-card p {
+  font-size: 0.7rem;
+  color: #888;
+  margin: 0;
+  flex: 1;
+}
+
+/* 4) FLEX GROW */
+.fb-grow-section {
+  background: white;
+  padding: 10px 20px;
+  flex-shrink: 0;
+  border-top: 1px solid #e8ecf0;
+}
+
+.fb-grow {
+  display: flex;          /* display:flex */
+  flex-direction: row;    /* flex-direction:row */
+  align-items: stretch;   /* align-items:stretch */
+  gap: 8px;
+  height: 20vh;           /* height:20vh */
+}
+
+.fb-grow-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+.fb-grow-box strong {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.fb-grow-box code {
+  font-size: 0.72rem;
+  color: #777;
+}
+
+.fb-grow-blue  { flex-grow: 1; background: #dbeafe; border-color: rgba(37,99,235,0.15); }
+.fb-grow-blue strong  { color: #1e3a8a; }
+
+.fb-grow-green { flex-grow: 2; background: #d1fae5; border-color: rgba(5,150,105,0.15); }
+.fb-grow-green strong { color: #064e3b; }
+
+.fb-grow-amber { flex-grow: 1; background: #fef3c7; border-color: rgba(217,119,6,0.15); }
+.fb-grow-amber strong { color: #78350f; }
+
+/* 5) FOOTER (iç) */
+.fb-footer {
+  display: flex;            /* display:flex */
+  justify-content: center;  /* justify-content:center */
+  align-items: center;      /* align-items:center */
+  height: 10vh;             /* height:10vh */
+  background: #2c3e50;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+.fb-footer p { margin: 0; }
+
+/* ---- BUTONLAR ---- */
+.fb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #3498db;
+  color: white;
+  transition: background 0.2s, transform 0.15s;
+  align-self: flex-start;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.fb-btn:hover { background: #2980b9; transform: translateY(-1px); }
+
+.fb-btn-sm { padding: 5px 12px; font-size: 0.72rem; }
+
+.fb-btn-blue  { background: #2563eb; }
+.fb-btn-blue:hover  { background: #1d4ed8; }
+
+.fb-btn-green { background: #059669; }
+.fb-btn-green:hover { background: #047857; }
+
+.fb-btn-amber { background: #d97706; }
+.fb-btn-amber:hover { background: #b45309; }
+
+/* Kontrol listesindeki code tagları */
+.column-left code,
+.column-right code {
+  background: #ecf0f1;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #2980b9;
+}
+
+/* fb-main için ek margin */
+.fb-main h2 {
+  margin-top: 30px;
+}
