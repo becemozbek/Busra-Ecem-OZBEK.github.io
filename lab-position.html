@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Position Lab – Etkileşimli Duyuru Kartı</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css" />
+  <style>
+    /* ============================================
+       CUSTOM STYLES FOR LAB-POSITION
+       ============================================ */
+
+    /* LoL TARZINDA CUSTOM CURSOR */
+    body {
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234f46e5;stop-opacity:1" /><stop offset="100%" style="stop-color:%236366f1;stop-opacity:1" /></linearGradient></defs><polygon points="6,2 28,16 18,18 20,28 8,20 2,20" fill="url(%23lolGradient)" stroke="%23ffffff" stroke-width="1.5" stroke-linejoin="round"/><polygon points="6,2 28,16 18,18 20,28 8,20 2,20" fill="none" stroke="%234f46e5" stroke-width="0.8" stroke-linejoin="round" opacity="0.6"/></svg>') 6 2, auto;
+    }
+
+    /* Page wrapper */
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .lab-wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: var(--bg-page);
+    }
+
+    .lab-navbar {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 10vh;
+      background: var(--bg-white);
+      padding: 0 2.5rem;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .lab-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lab-logo-mark {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      border-radius: 8px;
+      position: relative;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolLogo" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234f46e5;stop-opacity:1" /><stop offset="100%" style="stop-color:%236366f1;stop-opacity:1" /></linearGradient></defs><rect x="6" y="6" width="20" height="20" rx="3" fill="url(%23lolLogo)"/><rect x="6" y="6" width="20" height="20" rx="3" fill="none" stroke="%23ffffff" stroke-width="1.5"/><path d="M16 12 L22 20 L10 20 Z" fill="%23ffffff" opacity="0.8"/></svg>') 16 16, pointer;
+      transition: transform 0.3s;
+    }
+    .lab-logo-mark:hover {
+      transform: rotate(10deg);
+    }
+    .lab-logo-mark::after {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      background: white;
+      border-radius: 3px;
+      opacity: 0.5;
+    }
+
+    .lab-logo-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--ink-1);
+    }
+
+    .lab-nav-links {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .lab-nav-links a {
+      display: inline-block;
+      padding: 6px 14px;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--ink-3);
+      border-radius: var(--radius-sm);
+      transition: color 0.15s, background 0.15s;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolNav" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234f46e5;stop-opacity:1" /><stop offset="100%" style="stop-color:%236366f1;stop-opacity:1" /></linearGradient></defs><path d="M6,16 L26,16 M16,6 L16,26" stroke="url(%23lolNav)" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" fill="url(%23lolNav)"/></svg>') 16 16, pointer;
+    }
+    .lab-nav-links a:hover {
+      color: var(--ink-1);
+      background: var(--bg-subtle);
+    }
+    .lab-nav-links a.active {
+      color: var(--accent);
+      background: var(--accent-light);
+      font-weight: 500;
+    }
+
+    /* Page hero */
+    .lab-page-hero {
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .lab-page-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 99px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      width: fit-content;
+      margin-bottom: 4px;
+    }
+    .lab-page-hero-badge::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .lab-page-hero h1 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--ink-1);
+      margin: 0;
+      line-height: 1.2;
+    }
+    .lab-page-hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .lab-page-hero p {
+      font-size: 0.875rem;
+      color: var(--ink-3);
+      margin: 0;
+      line-height: 1.5;
+      max-width: 600px;
+    }
+
+    /* Main content */
+    .lab-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    /* ============================================
+       DUYURU KARTI — position: relative ana konteyner
+       ============================================ */
+    .announcement-card {
+      position: relative;  /* ← RELATIVE CONTAINER */
+      background: var(--bg-white);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolCard" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234f46e5;stop-opacity:1" /><stop offset="100%" style="stop-color:%236366f1;stop-opacity:1" /></linearGradient></defs><path d="M4 8 Q4 4 8 4 L24 4 Q28 4 28 8 L28 24 Q28 28 24 28 L8 28 Q4 28 4 24 Z" fill="url(%23lolCard)" opacity="0.1" stroke="url(%23lolCard)" stroke-width="1.5"/><polygon points="16,8 22,14 10,14" fill="url(%23lolCard)"/></svg>') 16 8, auto;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+    .announcement-card:hover {
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      border-color: var(--accent);
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolCardHover" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234f46e5;stop-opacity:1" /><stop offset="100%" style="stop-color:%236366f1;stop-opacity:1" /></linearGradient></defs><path d="M4 8 Q4 4 8 4 L24 4 Q28 4 28 8 L28 24 Q28 28 24 28 L8 28 Q4 28 4 24 Z" fill="url(%23lolCardHover)" opacity="0.2" stroke="url(%23lolCardHover)" stroke-width="2"/><polygon points="16,6 24,16 8,16" fill="url(%23lolCardHover)"/><circle cx="16" cy="16" r="2" fill="url(%23lolCardHover)"/></svg>') 16 6, auto;
+    }
+
+    /* Kartın arkasında decoratif gradient */
+    .announcement-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(79,70,229,0.04) 0%, rgba(79,70,229,0.02) 100%);
+      pointer-events: none;
+      border-radius: var(--radius-xl);
+    }
+
+    .announcement-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .announcement-badge {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 5px 14px;
+      border-radius: 99px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolGrab" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23db2777;stop-opacity:1" /><stop offset="100%" style="stop-color:%23ec4899;stop-opacity:1" /></linearGradient></defs><path d="M8 10v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4v-8M10 6v4M14 6v4M18 6v4M22 6v4" fill="none" stroke="url(%23lolGrab)" stroke-width="2" stroke-linecap="round"/></svg>') 10 6, grab;
+      user-select: none;
+      transition: all 0.2s;
+    }
+    .announcement-badge:active {
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolGrabActive" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23be185d;stop-opacity:1" /><stop offset="100%" style="stop-color:%23be185d;stop-opacity:1" /></linearGradient></defs><path d="M6 10v10a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4v-10M8 4v8M12 4v8M16 4v8M20 4v8M24 4v8" fill="none" stroke="url(%23lolGrabActive)" stroke-width="2.2" stroke-linecap="round"/></svg>') 10 6, grabbing;
+      transform: scale(0.98);
+    }
+
+    .announcement-content h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--ink-1);
+      margin: 0 0 0.5rem;
+      line-height: 1.3;
+    }
+    .announcement-content h2 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .announcement-content p {
+      font-size: 0.95rem;
+      color: var(--ink-2);
+      line-height: 1.7;
+      margin: 0 0 1.5rem;
+    }
+
+    .announcement-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolBtn" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234f46e5;stop-opacity:1" /><stop offset="100%" style="stop-color:%236366f1;stop-opacity:1" /></linearGradient></defs><polygon points="8,8 24,16 8,24" fill="url(%23lolBtn)"/><polygon points="8,8 24,16 8,24" fill="none" stroke="%23ffffff" stroke-width="1.5" stroke-linejoin="round"/></svg>') 8 16, pointer;
+      transition: all 0.2s;
+    }
+    .announcement-action:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(79,70,229,0.3);
+    }
+    .announcement-action:active {
+      transform: translateY(0);
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolBtnActive" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234338ca;stop-opacity:1" /><stop offset="100%" style="stop-color:%234f46e5;stop-opacity:1" /></linearGradient></defs><polygon points="6,6 26,16 6,26" fill="url(%23lolBtnActive)"/><polygon points="6,6 26,16 6,26" fill="none" stroke="%23ffffff" stroke-width="1.8" stroke-linejoin="round"/><circle cx="16" cy="16" r="3" fill="%23ffffff" opacity="0.8"/></svg>') 6 16, pointer;
+    }
+
+    /* ============================================
+       POSITION: ABSOLUTE — Etiketler/Rozetler
+       ============================================ */
+
+    /* Etiket 1: Üst-Sol */
+    .tag-1 {
+      position: absolute;  /* ← ABSOLUTE */
+      top: 20px;
+      left: 20px;
+      background: #fce7f3;
+      color: #db2777;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      z-index: 10;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolClick1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23db2777;stop-opacity:1" /><stop offset="100%" style="stop-color:%23ec4899;stop-opacity:1" /></linearGradient></defs><circle cx="16" cy="16" r="6" fill="url(%23lolClick1)" opacity="0.8"/><circle cx="16" cy="16" r="5" fill="none" stroke="url(%23lolClick1)" stroke-width="1.5"/><line x1="16" y1="6" x2="16" y2="2" stroke="url(%23lolClick1)" stroke-width="1.5" stroke-linecap="round"/></svg>') 16 6, pointer;
+      transition: all 0.3s;
+      transform: rotate(-5deg);
+    }
+    .tag-1:hover {
+      transform: rotate(-5deg) scale(1.1);
+      box-shadow: 0 4px 12px rgba(219,39,119,0.25);
+    }
+
+    /* Etiket 2: Üst-Sağ */
+    .tag-2 {
+      position: absolute;  /* ← ABSOLUTE */
+      top: 20px;
+      right: 20px;
+      background: #d1fae5;
+      color: #059669;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      z-index: 10;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolZoom" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23059669;stop-opacity:1" /><stop offset="100%" style="stop-color:%2310b981;stop-opacity:1" /></linearGradient></defs><circle cx="12" cy="12" r="7" fill="none" stroke="url(%23lolZoom)" stroke-width="2"/><line x1="18" y1="18" x2="24" y2="24" stroke="url(%23lolZoom)" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="8" x2="12" y2="16" stroke="url(%23lolZoom)" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="12" x2="16" y2="12" stroke="url(%23lolZoom)" stroke-width="1.5" stroke-linecap="round"/></svg>') 12 12, zoom-in;
+      transition: all 0.3s;
+      transform: rotate(5deg);
+    }
+    .tag-2:hover {
+      transform: rotate(5deg) scale(1.1);
+      box-shadow: 0 4px 12px rgba(5,150,105,0.25);
+    }
+
+    /* Etiket 3: Alt-Sağ */
+    .tag-3 {
+      position: absolute;  /* ← ABSOLUTE */
+      bottom: 20px;
+      right: 20px;
+      background: #fef3c7;
+      color: #d97706;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      z-index: 10;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolHelp" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23d97706;stop-opacity:1" /><stop offset="100%" style="stop-color:%23f97316;stop-opacity:1" /></linearGradient></defs><circle cx="16" cy="16" r="8" fill="none" stroke="url(%23lolHelp)" stroke-width="2"/><text x="16" y="20" font-size="14" font-weight="bold" fill="url(%23lolHelp)" text-anchor="middle">?</text></svg>') 16 16, help;
+      transition: all 0.3s;
+      transform: rotate(-3deg);
+    }
+    .tag-3:hover {
+      transform: rotate(-3deg) scale(1.1);
+      box-shadow: 0 4px 12px rgba(217,119,6,0.25);
+    }
+
+    /* Etiket 4: Alt-Sol (4. absolute öğe) */
+    .tag-4 {
+      position: absolute;  /* ← ABSOLUTE */
+      bottom: 20px;
+      left: 20px;
+      background: #ede9fe;
+      color: #7c3aed;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      z-index: 10;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolSpell" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%237c3aed;stop-opacity:1" /><stop offset="100%" style="stop-color:%238b5cf6;stop-opacity:1" /></linearGradient></defs><polygon points="16,4 24,10 24,22 16,28 8,22 8,10" fill="url(%23lolSpell)" opacity="0.7"/><polygon points="16,4 24,10 24,22 16,28 8,22 8,10" fill="none" stroke="url(%23lolSpell)" stroke-width="1.5"/><circle cx="16" cy="16" r="3" fill="url(%23lolSpell)"/></svg>') 16 16, pointer;
+      transition: all 0.3s;
+      transform: rotate(3deg);
+    }
+    .tag-4:hover {
+      transform: rotate(3deg) scale(1.1);
+      box-shadow: 0 4px 12px rgba(124,58,237,0.25);
+    }
+
+    /* ============================================
+       POSITION: FIXED — Sabit "Katıl" butonu
+       ============================================ */
+    .fab-join {
+      position: fixed;  /* ← FIXED */
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--accent) 0%, #6366f1 100%);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolFAB" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234f46e5;stop-opacity:1" /><stop offset="100%" style="stop-color:%236366f1;stop-opacity:1" /></linearGradient></defs><circle cx="16" cy="16" r="10" fill="url(%23lolFAB)" opacity="0.9"/><circle cx="16" cy="16" r="9" fill="none" stroke="%23ffffff" stroke-width="2"/><polygon points="16,8 20,14 12,14" fill="%23ffffff"/><polygon points="16,24 20,18 12,18" fill="%23ffffff"/><polygon points="8,16 14,20 14,12" fill="%23ffffff"/><polygon points="24,16 18,20 18,12" fill="%23ffffff"/></svg>') 16 16, pointer;
+      box-shadow: 0 8px 24px rgba(79,70,229,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      transition: all 0.3s ease;
+      animation: pulse-btn 2s infinite;
+    }
+    .fab-join:hover {
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 12px 32px rgba(79,70,229,0.45);
+    }
+    .fab-join:active {
+      transform: scale(0.95);
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolFABActive" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234338ca;stop-opacity:1" /><stop offset="100%" style="stop-color:%234f46e5;stop-opacity:1" /></linearGradient></defs><circle cx="16" cy="16" r="10" fill="url(%23lolFABActive)"/><circle cx="16" cy="16" r="9" fill="none" stroke="%23ffffff" stroke-width="2.2"/><polygon points="16,6 22,14 10,14" fill="%23ffffff"/><polygon points="16,26 22,18 10,18" fill="%23ffffff"/><polygon points="6,16 14,22 14,10" fill="%23ffffff"/><polygon points="26,16 18,22 18,10" fill="%23ffffff"/><circle cx="16" cy="16" r="2.5" fill="%23ffffff"/></svg>') 16 16, pointer;
+    }
+
+    /* ============================================
+       ANIMASYONLAR
+       ============================================ */
+
+    /* Animasyon 1: Pulse (HAREKETLİ) */
+    @keyframes pulse-btn {
+      0%, 100% {
+        box-shadow: 0 8px 24px rgba(79,70,229,0.35);
+      }
+      50% {
+        box-shadow: 0 8px 32px rgba(79,70,229,0.5);
+      }
+    }
+
+    /* Animasyon 2: Float (DEKORATİF) */
+    @keyframes float-tag {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    /* Animasyon 3: Kart Border Glow (SÜREKLİ) */
+    @keyframes card-glow {
+      0% {
+        border-color: var(--border);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      }
+      50% {
+        border-color: rgba(79,70,229,0.3);
+        box-shadow: 0 15px 50px rgba(79,70,229,0.15);
+      }
+      100% {
+        border-color: var(--border);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      }
+    }
+
+    /* Animasyon 4: Tag Rotate Drift (YAVAŞ DÖNÜŞ) */
+    @keyframes tag-drift {
+      0%, 100% {
+        transform: rotate(0deg) translateX(0);
+      }
+      50% {
+        transform: rotate(1deg) translateX(3px);
+      }
+    }
+
+    /* Animasyon 5: Background Shimmer (PARLAMA) */
+    @keyframes shimmer {
+      0% {
+        background-position: -1000px 0;
+      }
+      100% {
+        background-position: 1000px 0;
+      }
+    }
+
+    .tag-float {
+      animation: float-tag 3s ease-in-out infinite;
+    }
+
+    /* Kart ana animasyonu */
+    .announcement-card {
+      animation: card-glow 4s ease-in-out infinite;
+    }
+
+    /* Etiketler hafif drift */
+    .tag-1 {
+      animation: tag-drift 4s ease-in-out infinite;
+    }
+    .tag-2 {
+      animation: tag-drift 3.5s ease-in-out infinite reverse;
+    }
+    .tag-3 {
+      animation: tag-drift 4.5s ease-in-out infinite;
+    }
+
+    /* FAB button pulse */
+    .fab-join {
+      animation: pulse-btn 2s infinite, float-tag 3s ease-in-out infinite;
+    }
+
+
+    /* ============================================
+       LEAGUE TOWERS (KULELER) — position: fixed
+       ============================================ */
+    .towers-container {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 120px;
+      height: 300px;
+      z-index: 50;
+      display: flex;
+      gap: 15px;
+      padding: 0 20px;
+    }
+
+    .tower {
+      flex: 1;
+      background: linear-gradient(135deg, #6b7280 0%, #4b5563 50%, #2d3748 100%);
+      border-radius: 6px 6px 0 0;
+      position: relative;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolPlane" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234f46e5;stop-opacity:1" /><stop offset="100%" style="stop-color:%236366f1;stop-opacity:1" /></linearGradient></defs><polygon points="16,2 26,8 24,12 28,14 16,20 4,14 8,12 6,8" fill="url(%23lolPlane)"/><path d="M8 12 L4 16 M24 12 L28 16" stroke="url(%23lolPlane)" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="14" r="2" fill="url(%23lolPlane)"/></svg>') 16 10, auto;
+      border: 2px solid rgba(79, 70, 229, 0.3);
+      box-shadow: inset 0 2px 4px rgba(255,255,255,0.1), 0 8px 16px rgba(0,0,0,0.3);
+      transition: all 0.3s;
+      overflow: hidden;
+    }
+
+    .tower::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 40px;
+      background: linear-gradient(135deg, #4b5563 0%, #2d3748 100%);
+      clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    }
+
+    .tower::after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50%;
+      height: 50%;
+      border: 1px solid rgba(79, 70, 229, 0.4);
+      background: rgba(79, 70, 229, 0.05);
+      border-radius: 2px;
+    }
+
+    .tower-window {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background: rgba(79, 70, 229, 0.6);
+      border: 1px solid rgba(79, 70, 229, 0.8);
+      border-radius: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .tower-window:nth-child(3) { top: 25%; }
+    .tower-window:nth-child(4) { top: 45%; }
+    .tower-window:nth-child(5) { top: 65%; }
+
+
+
+    /* Smoke puff efekti (aria-hidden pseudo element) */
+    .tower::before {
+      animation: smoke-burst 0.8s ease-out forwards;
+    }
+
+    @keyframes smoke-burst {
+      0% {
+        top: -20px;
+        width: 60%;
+        opacity: 1;
+        filter: blur(0px);
+      }
+      50% {
+        width: 80%;
+        opacity: 0.8;
+        filter: blur(4px);
+        background: #333;
+      }
+      100% {
+        top: -50px;
+        width: 100%;
+        opacity: 0;
+        filter: blur(8px);
+        background: rgba(51, 51, 51, 0);
+      }
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .lab-footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      height: 10vh;
+      background: var(--bg-white);
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .lab-footer p {
+      font-size: 0.8rem;
+      color: var(--ink-4);
+      letter-spacing: 0.01em;
+      margin: 0;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="lolFooter" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%236b7280;stop-opacity:1" /><stop offset="100%" style="stop-color:%239ca3af;stop-opacity:1" /></linearGradient></defs><polygon points="16,6 26,12 26,26 6,26 6,12" fill="url(%23lolFooter)" opacity="0.6"/><polygon points="16,6 26,12 26,26 6,26 6,12" fill="none" stroke="url(%23lolFooter)" stroke-width="1.5"/></svg>') 16 12, auto;
+    }
+
+    .lab-footer-dot {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--border-md);
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 768px) {
+      .lab-navbar,
+      .lab-page-hero {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .lab-main {
+        padding: 1rem;
+      }
+
+      .announcement-card {
+        padding: 1.5rem;
+      }
+
+      .fab-join {
+        width: 54px;
+        height: 54px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.2rem;
+      }
+
+      .tag-1, .tag-2, .tag-3, .tag-4 {
+        padding: 4px 10px;
+        font-size: 0.65rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="lab-wrapper">
+
+    <!-- NAVBAR -->
+    <nav class="lab-navbar">
+      <div class="lab-logo">
+        <span class="lab-logo-mark"></span>
+        <span class="lab-logo-text">B. Ecem ÖZBEK</span>
+      </div>
+      <ul class="lab-nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="hakkimda.html">Hakkımda</a></li>
+        <li><a href="ilgi-alanlarim.html">İlgi Alanlarım</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+        <li><a href="lab-position.html" class="active">CSS Position</a></li>
+      </ul>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="lab-page-hero">
+      <span class="lab-page-hero-badge">CSS Position Lab</span>
+      <h1>Etkileşimli <em>Duyuru Kartı</em></h1>
+      <p>CSS position özelliğini (relative, absolute, fixed) kullanarak dinamik ve etkileşimli bir arayüz bileşeni tasarlandı. Hover efektleri, animasyonlar ve z-index ile katmanlı bir tasarım sunulmaktadır.</p>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="lab-main">
+
+      <!-- ANNOUNCEMENT CARD: position: relative -->
+      <div class="announcement-card">
+
+        <!-- Etiket 1: Üst-Sol | position: absolute, rotate, cursor: grab -->
+        <div class="tag-1" title="Etkinlik Türü">YAŞAYAN KÜTÜPHANESİ</div>
+
+        <!-- Etiket 2: Üst-Sağ | position: absolute, rotate, cursor: zoom-in -->
+        <div class="tag-2" title="Kategori">KÜLTÜR</div>
+
+        <!-- Etiket 3: Alt-Sağ | position: absolute, rotate, cursor: help -->
+        <div class="tag-3" title="Düzey">AÇIK ÖZVECİLİK</div>
+
+        <!-- Etiket 4: Alt-Sol | position: absolute, rotate, cursor: pointer -->
+        <div class="tag-4 tag-float" title="Konten">KATILIMCİ YOK</div>
+
+        <!-- Kartın ana içeriği -->
+        <div class="announcement-content">
+          <span class="announcement-badge">🎓 Üniversite Etkinliği</span>
+          <h2>Teknoloji Topluluğu <em>Etkinliği</em></h2>
+          <p>
+            "Yaşayan Kütüphane" konseptiyle öğrencilerimiz gerçek hayat projelerini tanıtacaklar.
+            CSS Position, Flexbox ve Grid konularında uzmanlarımız sertifika ve hediye dağıtmaya hazır.
+            Teknoloji ve inovasyon düşünen herkes bu etkinlikte olmalı!
+          </p>
+          <button class="announcement-action">Daha Fazla Bilgi</button>
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- FIXED BUTTON: position: fixed, animated -->
+    <button class="fab-join" title="Etkinliğe Katıl" aria-label="Etkinliğe Katıl">👋</button>
+
+
+    <!-- FOOTER -->
+    <footer class="lab-footer">
+      <span class="lab-footer-dot"></span>
+      <p>© 2026 – Büşra Ecem ÖZBEK | CSS Position Lab | Web Programlama</p>
+      <span class="lab-footer-dot"></span>
+    </footer>
+
+  </div>
+</body>
+</html>
