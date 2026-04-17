@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hafta 6 – Uygulamalar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/hafta6.css" />
+</head>
+<body>
+  <div class="wrapper-page">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">B. Ecem ÖZBEK</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="hakkimda.html">Hakkımda</a></li>
+        <li><a href="ilgi-alanlarim.html">İlgi Alanlarım</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+        <li><a href="hafta4.html">Hafta 4</a></li>
+        <li><a href="hafta5.html">Hafta 5</a></li>
+        <li><a href="hafta6.html" class="active">Hafta 6</a></li>
+      </ul>
+    </nav>
+
+    <!-- SAYFA BAŞLIĞI -->
+    <div class="page-hero">
+      <span class="page-hero-badge">Hafta 6</span>
+      <h1>JavaScript <em>Uygulamaları</em></h1>
+      <p>Form tabanlı hesaplama ve birim dönüştürme uygulamaları — HTML, CSS ve JavaScript.</p>
+    </div>
+
+    <!-- İÇERİK -->
+    <main class="h6-main">
+      <div class="h6-inner">
+
+        <!-- ==========================================
+             UYGULAMA 1 — Öğrenci Not Hesaplama
+             ========================================== -->
+        <div>
+          <div class="h6-app-header">
+            <div class="h6-app-badge">Uygulama 1</div>
+            <h2 class="h6-app-title">Öğrenci Not Hesaplama</h2>
+            <p class="h6-app-desc">
+              Ad soyad, vize notu ve final notunu girin. Ortalama (vize %40, final %60) hesaplanır,
+              harf notuna çevrilir ve geçti / kaldı durumu gösterilir.
+            </p>
+          </div>
+
+          <div class="h6-card">
+            <form class="h6-form" id="notForm" onsubmit="return false;">
+              <div class="h6-field">
+                <label for="adSoyad">Ad Soyad</label>
+                <input type="text" id="adSoyad" placeholder="Örn: Filiz Akın" />
+              </div>
+              <div class="h6-field">
+                <label for="vize">Vize Notu (0 – 100)</label>
+                <input type="number" id="vize" min="0" max="100" placeholder="Örn: 60" />
+              </div>
+              <div class="h6-field">
+                <label for="final">Final Notu (0 – 100)</label>
+                <input type="number" id="final" min="0" max="100" placeholder="Örn: 60" />
+              </div>
+              <button class="h6-btn" onclick="notHesapla()">Hesapla</button>
+            </form>
+
+            <div class="h6-result" id="notSonuc">
+              <div class="h6-result-name" id="ogrenciAd"></div>
+              <div class="h6-result-row">
+                <span class="h6-result-label">Ortalama:</span>
+                <span class="h6-result-value" id="ortalamaVal"></span>
+              </div>
+              <div class="h6-result-row">
+                <span class="h6-result-label">Harf Notu:</span>
+                <span class="h6-result-value grade" id="harfVal"></span>
+              </div>
+              <div class="h6-result-row">
+                <span class="h6-result-label">Durum:</span>
+                <span class="h6-result-value" id="durumVal"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             UYGULAMA 2 — Birim Dönüştürücü
+             ========================================== -->
+        <div>
+          <div class="h6-app-header">
+            <div class="h6-app-badge">Uygulama 2</div>
+            <h2 class="h6-app-title">Birim Dönüştürücü</h2>
+            <p class="h6-app-desc">
+              Farklı mühendislik birimlerini birbirine dönüştürün: Sıcaklık (Celsius–Fahrenheit–Kelvin)
+              ve Uzunluk (Metre–Kilometre–Mil).
+            </p>
+          </div>
+
+          <div class="h6-card">
+            <div class="h6-converter-grid">
+
+              <!-- Kutu A -->
+              <div class="h6-converter-box">
+                <div class="h6-field">
+                  <label for="degerA">Değer Giriniz:</label>
+                  <input type="number" id="degerA" placeholder="Örn: 50" />
+                </div>
+                <div class="h6-field">
+                  <label for="donusumA">Dönüşüm Tipi:</label>
+                  <select id="donusumA">
+                    <option value="m_km">Metre → Kilometre</option>
+                    <option value="c_f">Celsius → Fahrenheit</option>
+                    <option value="kg_g">Kilogram → Gram</option>
+                    <option value="km_m">Kilometre → Metre</option>
+                    <option value="f_c">Fahrenheit → Celsius</option>
+                    <option value="g_kg">Gram → Kilogram</option>
+                    <option value="c_k">Celsius → Kelvin</option>
+                    <option value="km_mil">Kilometre → Mil</option>
+                    <option value="mil_km">Mil → Kilometre</option>
+                  </select>
+                </div>
+                <button class="h6-btn" onclick="donusturA()">Hesapla</button>
+                <div class="h6-sonuc" id="sonucA"></div>
+              </div>
+
+              <!-- Kutu B -->
+              <div class="h6-converter-box">
+                <div class="h6-field">
+                  <label for="degerB">Değer Giriniz:</label>
+                  <input type="number" id="degerB" placeholder="Örn: 50" />
+                </div>
+                <div class="h6-field">
+                  <label for="donusumB">Dönüşüm Tipi:</label>
+                  <select id="donusumB">
+                    <option value="kg_g">Kilogram → Gram</option>
+                    <option value="m_km">Metre → Kilometre</option>
+                    <option value="c_f">Celsius → Fahrenheit</option>
+                    <option value="km_m">Kilometre → Metre</option>
+                    <option value="f_c">Fahrenheit → Celsius</option>
+                    <option value="g_kg">Gram → Kilogram</option>
+                    <option value="c_k">Celsius → Kelvin</option>
+                    <option value="km_mil">Kilometre → Mil</option>
+                    <option value="mil_km">Mil → Kilometre</option>
+                  </select>
+                </div>
+                <button class="h6-btn" onclick="donusturB()">Hesapla</button>
+                <div class="h6-sonuc" id="sonucB"></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <span class="footer-dot"></span>
+      <p>© 2026 – Büşra Ecem ÖZBEK | Web Programlama Ödevi</p>
+      <span class="footer-dot"></span>
+    </footer>
+
+  </div>
+
+  <script>
+    /* ---- Harf notu tablosu ---- */
+    function harfNotu(ort) {
+      if (ort >= 90) return 'AA';
+      if (ort >= 80) return 'BA';
+      if (ort >= 70) return 'BB';
+      if (ort >= 60) return 'CB';
+      if (ort >= 50) return 'CC';
+      if (ort >= 45) return 'DC';
+      if (ort >= 40) return 'DD';
+      if (ort >= 30) return 'FD';
+      return 'FF';
+    }
+
+    /* ---- Uygulama 1 ---- */
+    function notHesapla() {
+      const ad    = document.getElementById('adSoyad').value.trim();
+      const vize  = parseFloat(document.getElementById('vize').value);
+      const final = parseFloat(document.getElementById('final').value);
+
+      if (!ad || isNaN(vize) || isNaN(final)) {
+        alert('Lütfen tüm alanları doldurun.');
+        return;
+      }
+      if (vize < 0 || vize > 100 || final < 0 || final > 100) {
+        alert('Notlar 0 ile 100 arasında olmalıdır.');
+        return;
+      }
+
+      const ort   = vize * 0.4 + final * 0.6;
+      const harf  = harfNotu(ort);
+      const gecti = ort >= 50;
+
+      document.getElementById('ogrenciAd').textContent  = ad;
+      document.getElementById('ortalamaVal').textContent = ort.toFixed(2);
+      document.getElementById('harfVal').textContent     = harf;
+
+      const durumEl = document.getElementById('durumVal');
+      durumEl.textContent = gecti ? 'Geçti' : 'Kaldı';
+      durumEl.className   = 'h6-result-value ' + (gecti ? 'pass' : 'fail');
+
+      document.getElementById('notSonuc').classList.add('visible');
+    }
+
+    /* ---- Birim dönüşüm hesabı ---- */
+    function hesaplaDonusum(deger, tip) {
+      switch (tip) {
+        case 'm_km':   return { sonuc: deger / 1000,        birim: 'km' };
+        case 'km_m':   return { sonuc: deger * 1000,        birim: 'm' };
+        case 'c_f':    return { sonuc: deger * 9/5 + 32,    birim: '°F' };
+        case 'f_c':    return { sonuc: (deger - 32) * 5/9,  birim: '°C' };
+        case 'kg_g':   return { sonuc: deger * 1000,        birim: 'g' };
+        case 'g_kg':   return { sonuc: deger / 1000,        birim: 'kg' };
+        case 'c_k':    return { sonuc: deger + 273.15,      birim: 'K' };
+        case 'km_mil': return { sonuc: deger * 0.621371,    birim: 'mil' };
+        case 'mil_km': return { sonuc: deger / 0.621371,    birim: 'km' };
+        default:       return null;
+      }
+    }
+
+    function donusturA() {
+      const deger = parseFloat(document.getElementById('degerA').value);
+      const tip   = document.getElementById('donusumA').value;
+      const el    = document.getElementById('sonucA');
+
+      if (isNaN(deger)) { alert('Lütfen bir değer girin.'); return; }
+
+      const r = hesaplaDonusum(deger, tip);
+      el.textContent = 'Sonuç: ' + (+r.sonuc.toFixed(3)) + ' ' + r.birim;
+      el.classList.add('visible');
+    }
+
+    function donusturB() {
+      const deger = parseFloat(document.getElementById('degerB').value);
+      const tip   = document.getElementById('donusumB').value;
+      const el    = document.getElementById('sonucB');
+
+      if (isNaN(deger)) { alert('Lütfen bir değer girin.'); return; }
+
+      const r = hesaplaDonusum(deger, tip);
+      el.textContent = 'Sonuç: ' + (+r.sonuc.toFixed(3)) + ' ' + r.birim;
+      el.classList.add('visible');
+    }
+  </script>
+</body>
+</html>

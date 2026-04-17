@@ -1,0 +1,775 @@
+/* ============================================
+   LEGACY CSS — Eski tasarım sistemi
+   style.css + Flexbox.css birleştirilmiştir
+   ============================================ */
+
+/* ---- RESET & TEMEL ---- */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    line-height: 1.7;
+    padding: 20px 0;
+    color: #444;
+}
+
+.container {
+    width: 900px;
+    margin: 30px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+header {
+    text-align: center;
+    background: #2c3e50;
+    color: white;
+    padding: 40px 30px;
+    border-radius: 8px;
+    margin: -40px -40px 30px -40px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.subtitle {
+    margin: 10px 0 0 0;
+    font-size: 16px;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* ---- MENÜ ---- */
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    text-decoration: none;
+    background: #ecf0f1;
+    color: #2c3e50;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: #3498db;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* Hafta 4 / Flexbox özel nav linkleri */
+nav a.nav-new {
+    background: #e8f4fd;
+    color: #2980b9;
+    border: 1px solid #aed6f1;
+}
+nav a.nav-new:hover,
+nav a.nav-active {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+/* ---- GİRİŞ & BAŞLIKLAR ---- */
+
+.intro {
+    margin: 20px 0 30px 0;
+    color: #666;
+    font-size: 16px;
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+}
+
+main h2 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin: 35px 0 20px 0;
+    font-weight: 600;
+    border-left: 4px solid #3498db;
+    padding-left: 15px;
+}
+
+main h3 {
+    color: #2c3e50;
+    font-size: 18px;
+    margin: 20px 0 10px 0;
+}
+
+/* ---- İÇERİK KUTULARI ---- */
+
+.content-area {
+    margin: 30px 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.box {
+    flex: 1;
+    min-width: 45%;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    border: 1px solid #ecf0f1;
+}
+
+.box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+.box h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 20px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.main-box,
+.side-box {
+    background: #ecf0f1;
+}
+
+.box p {
+    margin: 12px 0;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* ---- LİSTELER ---- */
+
+.info-list {
+    margin: 20px 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.info-list li {
+    padding: 12px 0 12px 30px;
+    color: #555;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.info-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #3498db;
+    font-weight: bold;
+}
+
+.info-list li:hover {
+    color: #3498db;
+}
+
+main ol {
+    padding-left: 25px;
+    margin: 20px 0;
+}
+
+main ol li {
+    color: #555;
+    margin: 10px 0;
+    transition: color 0.3s ease;
+}
+
+main ol li:hover {
+    color: #3498db;
+}
+
+/* ---- İKİ KOLON ---- */
+
+.two-column-section {
+    display: flex;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.column-left,
+.column-right {
+    flex: 1;
+    padding: 25px;
+    background: #ecf0f1;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.column-left h3,
+.column-right h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 20px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.column-left ol {
+    padding-left: 25px;
+}
+
+.column-left ol li,
+.column-right ol li {
+    color: #555;
+    margin: 10px 0;
+    transition: color 0.3s ease;
+}
+
+.column-left ol li:hover,
+.column-right ol li:hover {
+    color: #3498db;
+}
+
+.column-left code,
+.column-right code {
+    background: #ecf0f1;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #2980b9;
+}
+
+/* ---- FOOTER ---- */
+
+footer {
+    margin: 40px -40px -40px -40px;
+    text-align: center;
+    border-top: 1px solid #ecf0f1;
+    padding: 25px 40px;
+    color: #999;
+    background: #f9f9f9;
+    border-radius: 0 0 8px 8px;
+    font-size: 14px;
+}
+
+/* ---- İLETİŞİM FORMU ---- */
+
+.contact-container {
+    width: 600px;
+    margin: 40px auto;
+    padding: 35px;
+    background: white;
+    border: 1px solid #ecf0f1;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.contact-container h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin: 0 0 30px 0;
+    font-size: 24px;
+    font-weight: 600;
+    border-left: 0;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 15px;
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.contact-container input,
+.contact-container select,
+.contact-container textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    background: #f9f9f9;
+}
+
+.contact-container input:focus,
+.contact-container select:focus,
+.contact-container textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.contact-container textarea {
+    resize: vertical;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 120px;
+}
+
+.contact-container button {
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.form-actions button {
+    width: auto;
+    margin-top: 0;
+}
+
+.contact-container button:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.contact-container button:active {
+    transform: translateY(0);
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-gonder,
+.btn-temizle {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-gonder {
+    background: #3498db;
+    color: white;
+}
+
+.btn-gonder:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.btn-temizle {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-temizle:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.btn-gonder:active,
+.btn-temizle:active {
+    transform: translateY(0);
+}
+
+.contact-container input[type="file"] {
+    padding: 10px;
+    background: white;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.contact-container input[type="file"]::-webkit-file-upload-button {
+    background: #ecf0f1;
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-container input[type="file"]::-webkit-file-upload-button:hover {
+    background: #bdc3c7;
+}
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.radio-option,
+.checkbox-option {
+    display: flex;
+    align-items: center;
+}
+
+.radio-option input[type="radio"],
+.checkbox-option input[type="checkbox"] {
+    width: auto;
+    padding: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    accent-color: #3498db;
+}
+
+.radio-option label,
+.checkbox-option label {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.radio-option:hover label,
+.checkbox-option:hover label {
+    color: #3498db;
+}
+
+/* ============================================
+   FLEXBOX DEMO — (Flexbox.css'ten birleştirildi)
+   ============================================ */
+
+/* Sayfa başlığı */
+.fb-page-title {
+    margin-bottom: 10px;
+}
+
+/* Bölüm açıklama satırı */
+.fb-desc {
+    font-size: 13px;
+    color: #888;
+    margin: -10px 0 12px 0;
+}
+
+.fb-desc code {
+    background: #ecf0f1;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #2980b9;
+}
+
+/* Demo çerçevesi */
+.fb-demo {
+    border: 2px dashed #d5e8f7;
+    border-radius: 10px;
+    background: #f8fbff;
+    padding: 14px;
+    margin: 0 0 35px 0;
+}
+
+/* İç Flexbox yapısı (100vh wrapper) */
+.fb-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #f0f2f5;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #dde3ea;
+}
+
+/* Navbar */
+.fb-navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    background: #2c3e50;
+    padding: 0 20px;
+    flex-shrink: 0;
+}
+
+.fb-logo {
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1.5px;
+}
+
+.fb-nav-links {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fb-nav-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.8rem;
+    padding: 5px 12px;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+
+.fb-nav-links a:hover {
+    background: rgba(255,255,255,0.12);
+    color: white;
+}
+
+/* Hero */
+.fb-hero {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 30vh;
+    background: white;
+    padding: 16px 20px;
+    gap: 16px;
+    flex-shrink: 0;
+    border-bottom: 1px solid #e8ecf0;
+}
+
+.fb-hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.fb-hero-text h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.fb-hero-text p {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+}
+
+.fb-hero-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42%;
+    background: #e8ecf0;
+    border-radius: 8px;
+    color: #aaa;
+    font-size: 0.78rem;
+    gap: 4px;
+}
+
+.fb-hero-img span {
+    font-size: 1.8rem;
+    opacity: 0.5;
+}
+
+/* Kartlar */
+.fb-cards-section {
+    background: #f0f2f5;
+    padding: 12px 20px;
+    flex-shrink: 0;
+}
+
+.fb-cards-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.fb-section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.fb-tag {
+    font-size: 0.7rem;
+    color: #888;
+    background: white;
+    border: 1px solid #dde3ea;
+    padding: 2px 8px;
+    border-radius: 99px;
+}
+
+.fb-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: stretch;
+}
+
+.fb-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+    border: 1px solid #e0e5ec;
+    border-radius: 8px;
+    padding: 10px 12px;
+    flex: 1 1 calc(16.6% - 8px);
+    min-width: 110px;
+    gap: 5px;
+    transition: box-shadow 0.2s;
+}
+
+.fb-card:hover {
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.fb-card h4 {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.fb-card p {
+    font-size: 0.7rem;
+    color: #888;
+    margin: 0;
+    flex: 1;
+}
+
+/* Flex Grow */
+.fb-grow-section {
+    background: white;
+    padding: 10px 20px;
+    flex-shrink: 0;
+    border-top: 1px solid #e8ecf0;
+}
+
+.fb-grow {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 8px;
+    height: 20vh;
+}
+
+.fb-grow-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
+.fb-grow-box strong {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.fb-grow-box code {
+    font-size: 0.72rem;
+    color: #777;
+}
+
+.fb-grow-blue  { flex-grow: 1; background: #dbeafe; border-color: rgba(37,99,235,0.15); }
+.fb-grow-blue strong  { color: #1e3a8a; }
+
+.fb-grow-green { flex-grow: 2; background: #d1fae5; border-color: rgba(5,150,105,0.15); }
+.fb-grow-green strong { color: #064e3b; }
+
+.fb-grow-amber { flex-grow: 1; background: #fef3c7; border-color: rgba(217,119,6,0.15); }
+.fb-grow-amber strong { color: #78350f; }
+
+/* Footer (iç) */
+.fb-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    background: #2c3e50;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    margin-top: auto;
+}
+
+.fb-footer p {
+    margin: 0;
+}
+
+/* Butonlar */
+.fb-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 16px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #3498db;
+    color: white;
+    transition: background 0.2s, transform 0.15s;
+    align-self: flex-start;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fb-btn:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+}
+
+.fb-btn-sm { padding: 5px 12px; font-size: 0.72rem; }
+
+.fb-btn-blue  { background: #2563eb; }
+.fb-btn-blue:hover  { background: #1d4ed8; }
+
+.fb-btn-green { background: #059669; }
+.fb-btn-green:hover { background: #047857; }
+
+.fb-btn-amber { background: #d97706; }
+.fb-btn-amber:hover { background: #b45309; }
+
+/* fb-main ek margin */
+.fb-main h2 {
+    margin-top: 30px;
+}

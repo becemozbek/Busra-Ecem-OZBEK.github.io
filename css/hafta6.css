@@ -1,0 +1,227 @@
+/* ============================================
+   HAFTA 6 — Uygulama Stilleri
+   ============================================ */
+
+/* Sayfa düzeni */
+.h6-main {
+  flex: 1;
+  background: var(--bg-page);
+  padding: 2rem 2.5rem;
+}
+
+.h6-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Uygulama başlık bandı */
+.h6-app-header {
+  margin-bottom: 1rem;
+}
+
+.h6-app-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  background: var(--accent-light);
+  color: var(--accent);
+  border-radius: 99px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.h6-app-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink-1);
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+
+.h6-app-desc {
+  font-size: 0.85rem;
+  color: var(--ink-3);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 680px;
+}
+
+/* Kart kutusu */
+.h6-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem 2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s;
+}
+.h6-card:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+
+/* ============================================
+   UYGULAMA 1 — Öğrenci Not Hesaplama
+   ============================================ */
+.h6-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.h6-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.h6-field label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  letter-spacing: 0.01em;
+}
+
+.h6-field input {
+  width: 100%;
+  padding: 10px 13px;
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-md);
+  font-family: var(--font);
+  font-size: 0.875rem;
+  color: var(--ink-1);
+  background: var(--bg-subtle);
+  outline: none;
+  transition: all 0.15s;
+  box-sizing: border-box;
+}
+
+.h6-field input:focus {
+  border-color: var(--accent);
+  background: var(--bg-white);
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+}
+
+.h6-btn {
+  padding: 11px 20px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  width: 100%;
+  margin-top: 4px;
+}
+.h6-btn:hover  { background: var(--accent-hover); }
+.h6-btn:active { transform: scale(0.98); }
+
+/* Sonuç kutusu */
+.h6-result {
+  display: none;
+  margin-top: 1rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+}
+
+.h6-result.visible {
+  display: block;
+}
+
+.h6-result-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-1);
+  margin-bottom: 8px;
+}
+
+.h6-result-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--ink-2);
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border);
+}
+.h6-result-row:last-child { border-bottom: none; }
+
+.h6-result-label {
+  color: var(--ink-3);
+  min-width: 90px;
+  font-size: 0.82rem;
+}
+
+.h6-result-value {
+  font-weight: 600;
+  color: var(--ink-1);
+}
+
+.h6-result-value.pass  { color: var(--green); }
+.h6-result-value.fail  { color: #dc2626; }
+.h6-result-value.grade { color: var(--accent); }
+
+/* ============================================
+   UYGULAMA 2 — Birim Dönüştürücü
+   ============================================ */
+.h6-converter-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.h6-converter-box {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.h6-field select {
+  width: 100%;
+  padding: 10px 13px;
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-md);
+  font-family: var(--font);
+  font-size: 0.875rem;
+  color: var(--ink-1);
+  background: var(--bg-subtle);
+  outline: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-sizing: border-box;
+}
+
+.h6-field select:focus {
+  border-color: var(--accent);
+  background: var(--bg-white);
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+}
+
+.h6-sonuc {
+  display: none;
+  margin-top: 4px;
+  padding: 12px 16px;
+  background: var(--green-light);
+  border: 1px solid rgba(5,150,105,0.2);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #065f46;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.h6-sonuc.visible { display: block; }

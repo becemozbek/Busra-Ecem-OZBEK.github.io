@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FlexLab – Ana Sayfa</title>
+  <title>Hafta 4 – FlexLab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -12,35 +12,32 @@
 <body>
   <div class="wrapper">
 
-    <!-- 1) NAVBAR -->
+    <!-- 1) NAVBAR: flex row, justify-content:space-between, align-items:center, 10vh -->
     <nav class="navbar">
       <div class="logo">
         <span class="logo-mark"></span>
         <span class="logo-text">B. Ecem ÖZBEK</span>
       </div>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Ana Sayfa</a></li>
+        <li><a href="index.html">Ana Sayfa</a></li>
         <li><a href="hakkimda.html">Hakkımda</a></li>
         <li><a href="ilgi-alanlarim.html">İlgi Alanlarım</a></li>
         <li><a href="iletisim.html">İletişim</a></li>
-        <li><a href="hafta4.html">Hafta 4</a></li>
+        <li><a href="hafta4.html" class="active">Hafta 4</a></li>
         <li><a href="hafta5.html">Hafta 5</a></li>
         <li><a href="hafta6.html">Hafta 6</a></li>
       </ul>
     </nav>
 
-    <!-- 2) HERO -->
+    <!-- 2) HERO: flex-direction:row, align-items:stretch, 30vh -->
     <section class="hero">
       <div class="hero-text">
-        <span class="hero-badge">Web Programlama Ödevi</span>
-        <h1>Büşra Ecem<br><em>ÖZBEK</em></h1>
-        <p>Bilgisayar Mühendisliği öğrencisi. Flexbox, HTML ve CSS ile modern web arayüzleri geliştiriyorum.</p>
+        <span class="hero-badge">Hafta 4 – Flexbox Temelleri</span>
+        <h1>Modern CSS<br><em>Düzeni Öğren</em></h1>
+        <p>Flexbox ile responsive ve dinamik sayfa düzenleri oluşturmayı adım adım keşfet.</p>
         <div class="hero-actions">
-          <a href="hakkimda.html"><button class="btn btn-primary">Hakkımda</button></a>
-          <a href="iletisim.html"><button class="btn btn-ghost">İletişim →</button></a>
-          <a href="hafta4.html"><button class="btn btn-ghost">Hafta 4 →</button></a>
-          <a href="hafta5.html"><button class="btn btn-ghost">Hafta 5 →</button></a>
-          <a href="hafta6.html"><button class="btn btn-ghost">Hafta 6 →</button></a>
+          <button class="btn btn-primary">Başla</button>
+          <button class="btn btn-ghost">Daha fazla →</button>
         </div>
       </div>
       <div class="hero-visual">
@@ -57,10 +54,10 @@
       </div>
     </section>
 
-    <!-- 3) KARTLAR -->
+    <!-- 3) KARTLAR: display:flex, flex-wrap:wrap, gap, 30vh -->
     <section class="cards-section">
       <div class="section-header">
-        <h2>Flexbox Modülleri</h2>
+        <h2>Dersler</h2>
         <span class="section-tag">6 modül</span>
       </div>
       <div class="cards-container">
@@ -115,7 +112,7 @@
       </div>
     </section>
 
-    <!-- 4) FLEX GROW DEMO -->
+    <!-- 4) FLEX GROW: flex-grow 1-2-1, align-items:stretch, 20vh -->
     <section class="grow-section">
       <div class="section-header compact">
         <h2>Flex Grow — Canlı Demo</h2>
@@ -144,10 +141,10 @@
       </div>
     </section>
 
-    <!-- 5) FOOTER -->
+    <!-- 5) FOOTER: justify-content:center, align-items:center, 10vh -->
     <footer class="footer">
       <span class="footer-dot"></span>
-      <p>© 2026 – Büşra Ecem ÖZBEK | Web Programlama Ödevi</p>
+      <p>© 2026 – Büşra Ecem ÖZBEK | Web Programlama</p>
       <span class="footer-dot"></span>
     </footer>
 
