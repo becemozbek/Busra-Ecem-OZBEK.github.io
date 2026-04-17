@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hafta 6-2 – Birim Dönüştürücü</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/hafta6.css" />
+</head>
+<body>
+  <div class="wrapper-page">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">B. Ecem ÖZBEK</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="hakkimda.html">Hakkımda</a></li>
+        <li><a href="ilgi-alanlarim.html">İlgi Alanlarım</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+        <li><a href="hafta4.html">Hafta 4</a></li>
+        <li><a href="hafta5.html">Hafta 5</a></li>
+        <li><a href="hafta6-1.html">Hafta 6-1</a></li>
+        <li><a href="hafta6-2.html" class="active">Hafta 6-2</a></li>
+      </ul>
+    </nav>
+
+    <!-- SAYFA BAŞLIĞI -->
+    <div class="page-hero">
+      <span class="page-hero-badge">Hafta 6-2</span>
+      <h1>Birim <em>Dönüştürücü</em></h1>
+      <p>Farklı mühendislik birimlerini birbirine dönüştürün: Sıcaklık, Uzunluk ve Kütle — HTML, CSS ve JavaScript.</p>
+    </div>
+
+    <!-- İÇERİK -->
+    <main class="h6-main">
+      <div class="h6-inner">
+
+        <!-- ==========================================
+             UYGULAMA 2 — Birim Dönüştürücü
+             ========================================== -->
+        <div>
+          <div class="h6-app-header">
+            <div class="h6-app-badge">Uygulama 2</div>
+            <h2 class="h6-app-title">Birim Dönüştürücü</h2>
+            <p class="h6-app-desc">
+              Farklı mühendislik birimlerini birbirine dönüştürün: Sıcaklık (Celsius–Fahrenheit–Kelvin)
+              ve Uzunluk (Metre–Kilometre–Mil).
+            </p>
+          </div>
+
+          <div class="h6-card">
+            <div class="h6-converter-grid">
+
+              <!-- Kutu A -->
+              <div class="h6-converter-box">
+                <div class="h6-field">
+                  <label for="degerA">Değer Giriniz:</label>
+                  <input type="number" id="degerA" placeholder="Örn: 50" />
+                </div>
+                <div class="h6-field">
+                  <label for="donusumA">Dönüşüm Tipi:</label>
+                  <select id="donusumA">
+                    <option value="m_km">Metre → Kilometre</option>
+                    <option value="c_f">Celsius → Fahrenheit</option>
+                    <option value="kg_g">Kilogram → Gram</option>
+                    <option value="km_m">Kilometre → Metre</option>
+                    <option value="f_c">Fahrenheit → Celsius</option>
+                    <option value="g_kg">Gram → Kilogram</option>
+                    <option value="c_k">Celsius → Kelvin</option>
+                    <option value="km_mil">Kilometre → Mil</option>
+                    <option value="mil_km">Mil → Kilometre</option>
+                  </select>
+                </div>
+                <button class="h6-btn" onclick="donusturA()">Hesapla</button>
+                <div class="h6-sonuc" id="sonucA"></div>
+              </div>
+
+              <!-- Kutu B -->
+              <div class="h6-converter-box">
+                <div class="h6-field">
+                  <label for="degerB">Değer Giriniz:</label>
+                  <input type="number" id="degerB" placeholder="Örn: 50" />
+                </div>
+                <div class="h6-field">
+                  <label for="donusumB">Dönüşüm Tipi:</label>
+                  <select id="donusumB">
+                    <option value="kg_g">Kilogram → Gram</option>
+                    <option value="m_km">Metre → Kilometre</option>
+                    <option value="c_f">Celsius → Fahrenheit</option>
+                    <option value="km_m">Kilometre → Metre</option>
+                    <option value="f_c">Fahrenheit → Celsius</option>
+                    <option value="g_kg">Gram → Kilogram</option>
+                    <option value="c_k">Celsius → Kelvin</option>
+                    <option value="km_mil">Kilometre → Mil</option>
+                    <option value="mil_km">Mil → Kilometre</option>
+                  </select>
+                </div>
+                <button class="h6-btn" onclick="donusturB()">Hesapla</button>
+                <div class="h6-sonuc" id="sonucB"></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <span class="footer-dot"></span>
+      <p>© 2026 – Büşra Ecem ÖZBEK | Web Programlama Ödevi</p>
+      <span class="footer-dot"></span>
+    </footer>
+
+  </div>
+
+  <script>
+    /* ---- Birim dönüşüm hesabı ---- */
+    function hesaplaDonusum(deger, tip) {
+      switch (tip) {
+        case 'm_km':   return { sonuc: deger / 1000,        birim: 'km' };
+        case 'km_m':   return { sonuc: deger * 1000,        birim: 'm' };
+        case 'c_f':    return { sonuc: deger * 9/5 + 32,    birim: '°F' };
+        case 'f_c':    return { sonuc: (deger - 32) * 5/9,  birim: '°C' };
+        case 'kg_g':   return { sonuc: deger * 1000,        birim: 'g' };
+        case 'g_kg':   return { sonuc: deger / 1000,        birim: 'kg' };
+        case 'c_k':    return { sonuc: deger + 273.15,      birim: 'K' };
+        case 'km_mil': return { sonuc: deger * 0.621371,    birim: 'mil' };
+        case 'mil_km': return { sonuc: deger / 0.621371,    birim: 'km' };
+        default:       return null;
+      }
+    }
+
+    function donusturA() {
+      const deger = parseFloat(document.getElementById('degerA').value);
+      const tip   = document.getElementById('donusumA').value;
+      const el    = document.getElementById('sonucA');
+
+      if (isNaN(deger)) { alert('Lütfen bir değer girin.'); return; }
+
+      const r = hesaplaDonusum(deger, tip);
+      el.textContent = 'Sonuç: ' + (+r.sonuc.toFixed(3)) + ' ' + r.birim;
+      el.classList.add('visible');
+    }
+
+    function donusturB() {
+      const deger = parseFloat(document.getElementById('degerB').value);
+      const tip   = document.getElementById('donusumB').value;
+      const el    = document.getElementById('sonucB');
+
+      if (isNaN(deger)) { alert('Lütfen bir değer girin.'); return; }
+
+      const r = hesaplaDonusum(deger, tip);
+      el.textContent = 'Sonuç: ' + (+r.sonuc.toFixed(3)) + ' ' + r.birim;
+      el.classList.add('visible');
+    }
+  </script>
+</body>
+</html>
