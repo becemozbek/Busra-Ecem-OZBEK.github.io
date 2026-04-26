@@ -398,6 +398,7 @@
       .tag-1, .tag-2, .tag-3, .tag-4 { padding: 4px 10px; font-size: 0.65rem; }
     }
   </style>
+  <script>if(localStorage.getItem("theme")==="dark")document.documentElement.classList.add("dark");var _s=localStorage.getItem("season");if(_s&&_s!=="default")document.documentElement.classList.add("s-"+_s);</script>
 </head>
 <body>
   <div class="lab-wrapper">
@@ -417,7 +418,9 @@
         <li><a href="hafta5.html" class="active">Hafta 5</a></li>
         <li><a href="hafta6-1.html">Hafta 6-1</a></li>
         <li><a href="hafta6-2.html">Hafta 6-2</a></li>
+        <li><a href="hafta7.html">Hafta 7</a></li>
       </ul>
+      <button class="theme-toggle" id="themeToggle" title="Gece moduna geç">🌙</button>
     </nav>
 
     <!-- PAGE HERO -->
@@ -470,5 +473,6 @@
     </footer>
 
   </div>
+  <script src="scripts/theme.js"></script>
 </body>
 </html>

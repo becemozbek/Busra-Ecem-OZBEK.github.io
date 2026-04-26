@@ -71,7 +71,112 @@
       font-size: 0.8rem;
       border-radius: 8px;
     }
+
+    /* Nav-links sağa yasla */
+    .navbar .nav-links { margin-left: auto; }
+
+    /* Hero içi mevsim seçici */
+    .hero-season {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .hero-season .hs-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--ink-4);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── MEVSİM TEMAları ── */
+    html.s-sakura { --accent:#be185d; --accent-hover:#9d174d; --accent-light:#fce7f3; }
+    html.s-bahar  { --accent:#16a34a; --accent-hover:#15803d; --accent-light:#dcfce7; }
+    html.s-gok    { --accent:#0284c7; --accent-hover:#0369a1; --accent-light:#e0f2fe; }
+
+    html:not(.dark).s-sakura .hero { background: linear-gradient(135deg, #fff5f7 0%, #fff 40%, #fce7f3 100%); }
+    html:not(.dark).s-bahar  .hero { background: linear-gradient(160deg, #f0fdf4 0%, #dcfce7 55%, #bbf7d0 100%); }
+    html:not(.dark).s-gok    .hero { background: linear-gradient(180deg, #e0f2fe 0%, #f0f9ff 60%, #fef9ee 100%); }
+
+    html.dark.s-sakura .hero { background: linear-gradient(135deg, #1a0a12 0%, #0f1117 40%, #260d1c 100%); }
+    html.dark.s-bahar  .hero { background: linear-gradient(160deg, #071a0f 0%, #0f1117 40%, #0d2018 100%); }
+    html.dark.s-gok    .hero { background: linear-gradient(180deg, #051525 0%, #0f1117 50%, #0a1520 100%); }
+
+    /* Mevsim animasyon katmanı */
+    #season-layer { position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
+    .hero > *:not(#season-layer) { position:relative; z-index:1; }
+
+    /* Sakura yaprakları */
+    .sp-petal {
+      position:absolute; top:-20px;
+      width:12px; height:12px;
+      background: radial-gradient(circle at 30% 30%, #fda4af, #fb7185);
+      border-radius: 50% 0 50% 0;
+      opacity:0;
+      animation: sp-fall linear infinite;
+    }
+    @keyframes sp-fall {
+      0%   { transform: translateY(0) rotate(0deg) translateX(0); opacity:0; }
+      10%  { opacity:0.85; }
+      90%  { opacity:0.6; }
+      100% { transform: translateY(350px) rotate(720deg) translateX(30px); opacity:0; }
+    }
+
+    /* Kelebekler */
+    .sp-butterfly {
+      position:absolute; font-size:1.1rem;
+      animation: sp-flutter linear infinite;
+    }
+    @keyframes sp-flutter {
+      0%   { transform: translateX(-60px) translateY(0); opacity:0; }
+      8%   { opacity:1; }
+      92%  { opacity:1; }
+      100% { transform: translateX(110vw) translateY(-15px); opacity:0; }
+    }
+
+    /* Bulutlar */
+    .sp-cloud {
+      position:absolute; left:-200px;
+      background:rgba(255,255,255,0.85);
+      border-radius:50px;
+      animation: sp-drift linear infinite;
+    }
+    .sp-cloud::before {
+      content:''; position:absolute;
+      background:rgba(255,255,255,0.85);
+      border-radius:50%;
+      width:60%; height:130%;
+      top:-40%; left:15%;
+    }
+    .sp-cloud::after {
+      content:''; position:absolute;
+      background:rgba(255,255,255,0.85);
+      border-radius:50%;
+      width:40%; height:110%;
+      top:-30%; right:15%;
+    }
+    @keyframes sp-drift {
+      from { transform: translateX(0); }
+      to   { transform: translateX(calc(100vw + 250px)); }
+    }
+
+    /* Kuş */
+    .sp-bird {
+      position:absolute; font-size:1.3rem;
+      animation: sp-fly linear infinite;
+    }
+    @keyframes sp-fly {
+      0%   { transform: translateX(-60px) translateY(0); opacity:0; }
+      5%   { opacity:1; }
+      95%  { opacity:1; }
+      100% { transform: translateX(110vw) translateY(-25px); opacity:0; }
+    }
   </style>
+  <script>
+    if(localStorage.getItem("theme")==="dark") document.documentElement.classList.add("dark");
+    var _s=localStorage.getItem("season");if(_s&&_s!=="default")document.documentElement.classList.add("s-"+_s);
+  </script>
 </head>
 <body>
   <div class="wrapper">
@@ -91,11 +196,13 @@
         <li><a href="hafta5.html">Hafta 5</a></li>
         <li><a href="hafta6-1.html">Hafta 6-1</a></li>
         <li><a href="hafta6-2.html">Hafta 6-2</a></li>
+        <li><a href="hafta7.html">Hafta 7</a></li>
       </ul>
     </nav>
 
     <!-- 2) HERO -->
-    <section class="hero">
+    <section class="hero" style="position:relative;overflow:hidden;">
+      <div id="season-layer"></div>
       <div class="hero-text">
         <span class="hero-badge">Web Programlama Portfolyosu</span>
         <h1>Büşra Ecem<br><em>ÖZBEK</em></h1>
@@ -103,6 +210,16 @@
         <div class="hero-actions">
           <a href="hakkimda.html"><button class="btn btn-primary">Hakkımda</button></a>
           <a href="iletisim.html"><button class="btn btn-ghost">İletişim →</button></a>
+        </div>
+        <div class="hero-season">
+          <span class="hs-label">Tema</span>
+          <div class="season-picker" id="seasonPicker">
+            <button class="sp-btn active" data-season="default" title="Varsayılan">✦</button>
+            <button class="sp-btn" data-season="sakura" title="Sakura">🌸</button>
+            <button class="sp-btn" data-season="bahar" title="Bahar Bahçesi">🌿</button>
+            <button class="sp-btn" data-season="gok" title="Açık Gök">☁️</button>
+          </div>
+          <button class="theme-toggle" id="themeToggle" title="Gece moduna geç">🌙</button>
         </div>
       </div>
       <div class="hero-visual">
@@ -196,6 +313,14 @@
           <p>Birim dönüştürücü: sıcaklık, uzunluk ve kütle çevirimleri</p>
           <a href="hafta6-2.html"><button class="btn btn-card">Görüntüle</button></a>
         </div>
+        <div class="card">
+          <div class="card-icon" style="background:#ede9fe">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 3v18M15 9h3M15 15h3"/></svg>
+          </div>
+          <h3>Hafta 7</h3>
+          <p>Bootstrap + JavaScript: etkinlik kayıt formu, tema değiştirme</p>
+          <a href="hafta7.html"><button class="btn btn-card">Görüntüle</button></a>
+        </div>
       </div>
     </section>
 
@@ -207,5 +332,81 @@
     </footer>
 
   </div>
+  <script src="scripts/theme.js"></script>
+  <script>
+  (function () {
+    const SEASONS = ['default', 'sakura', 'bahar', 'gok'];
+    const layer   = document.getElementById('season-layer');
+    const picker  = document.getElementById('seasonPicker');
+    let current   = localStorage.getItem('season') || 'default';
+
+    function clearLayer() { layer.innerHTML = ''; }
+
+    function initSakura() {
+      for (let i = 0; i < 14; i++) {
+        const p = document.createElement('div');
+        p.className = 'sp-petal';
+        p.style.left            = Math.random() * 100 + '%';
+        p.style.animationDelay    = (Math.random() * 8) + 's';
+        p.style.animationDuration = (5 + Math.random() * 5) + 's';
+        layer.appendChild(p);
+      }
+    }
+
+    function initBahar() {
+      ['🦋','🌸','🦋','🦋'].forEach(function (e, i) {
+        const b = document.createElement('div');
+        b.className = 'sp-butterfly';
+        b.textContent = e;
+        b.style.top               = (12 + i * 18) + '%';
+        b.style.animationDelay    = (i * 3.5) + 's';
+        b.style.animationDuration = (12 + i * 3) + 's';
+        layer.appendChild(b);
+      });
+    }
+
+    function initGok() {
+      [[90,8,'20s','-3s'],[130,32,'28s','-10s'],[80,54,'22s','-16s']].forEach(function (cfg) {
+        const c = document.createElement('div');
+        c.className = 'sp-cloud';
+        c.style.width            = cfg[0] + 'px';
+        c.style.height           = Math.round(cfg[0] * 0.32) + 'px';
+        c.style.top              = cfg[1] + '%';
+        c.style.animationDuration = cfg[2];
+        c.style.animationDelay   = cfg[3];
+        layer.appendChild(c);
+      });
+      const bird = document.createElement('div');
+      bird.className = 'sp-bird';
+      bird.textContent = '🐦';
+      bird.style.top              = '18%';
+      bird.style.animationDuration = '16s';
+      bird.style.animationDelay   = '5s';
+      layer.appendChild(bird);
+    }
+
+    function applySeason(season, save) {
+      SEASONS.forEach(function (s) { document.documentElement.classList.remove('s-' + s); });
+      clearLayer();
+      if (season !== 'default') {
+        document.documentElement.classList.add('s-' + season);
+        if (season === 'sakura') initSakura();
+        else if (season === 'bahar') initBahar();
+        else if (season === 'gok')   initGok();
+      }
+      picker.querySelectorAll('.sp-btn').forEach(function (btn) {
+        btn.classList.toggle('active', btn.dataset.season === season);
+      });
+      current = season;
+      if (save) localStorage.setItem('season', season);
+    }
+
+    picker.querySelectorAll('.sp-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () { applySeason(btn.dataset.season, true); });
+    });
+
+    applySeason(current, false);
+  })();
+  </script>
 </body>
 </html>

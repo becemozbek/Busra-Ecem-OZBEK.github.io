@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/hafta6.css" />
+  <script>if(localStorage.getItem("theme")==="dark")document.documentElement.classList.add("dark");var _s=localStorage.getItem("season");if(_s&&_s!=="default")document.documentElement.classList.add("s-"+_s);</script>
 </head>
 <body>
   <div class="wrapper-page">
@@ -28,7 +29,9 @@
         <li><a href="hafta5.html">Hafta 5</a></li>
         <li><a href="hafta6-1.html" class="active">Hafta 6-1</a></li>
         <li><a href="hafta6-2.html">Hafta 6-2</a></li>
+        <li><a href="hafta7.html">Hafta 7</a></li>
       </ul>
+      <button class="theme-toggle" id="themeToggle" title="Gece moduna geç">🌙</button>
     </nav>
 
     <!-- SAYFA BAŞLIĞI -->
@@ -146,5 +149,6 @@
       document.getElementById('notSonuc').classList.add('visible');
     }
   </script>
+  <script src="scripts/theme.js"></script>
 </body>
 </html>
