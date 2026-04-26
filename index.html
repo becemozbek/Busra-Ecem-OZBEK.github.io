@@ -385,6 +385,17 @@
       layer.appendChild(bird);
     }
 
+    function applyTheme(dark) {
+      var themeBtn = document.getElementById('themeToggle');
+      if (dark) {
+        document.documentElement.classList.add('dark');
+        if (themeBtn) { themeBtn.textContent = '☀️'; themeBtn.title = 'Gündüz moduna geç'; }
+      } else {
+        document.documentElement.classList.remove('dark');
+        if (themeBtn) { themeBtn.textContent = '🌙'; themeBtn.title = 'Gece moduna geç'; }
+      }
+    }
+
     function applySeason(season, save) {
       SEASONS.forEach(function (s) { document.documentElement.classList.remove('s-' + s); });
       clearLayer();
@@ -393,6 +404,8 @@
         if (season === 'sakura') initSakura();
         else if (season === 'bahar') initBahar();
         else if (season === 'gok')   initGok();
+        /* Mevsim seçilince otomatik açık moda geç */
+        if (save) { localStorage.setItem('theme', 'light'); applyTheme(false); }
       }
       picker.querySelectorAll('.sp-btn').forEach(function (btn) {
         btn.classList.toggle('active', btn.dataset.season === season);
