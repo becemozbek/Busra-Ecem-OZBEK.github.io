@@ -1,0 +1,78 @@
+/* ============================================
+   HAFTA 7 — Bootstrap üzerine minimal ek stiller
+   ============================================ */
+
+/* Koyu tema */
+body.dark-theme {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-theme .card,
+body.dark-theme .card-body {
+  background-color: #1e1e1e !important;
+  border-color: #333 !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-theme .bg-light {
+  background-color: #2a2a2a !important;
+}
+
+body.dark-theme .text-muted {
+  color: #aaa !important;
+}
+
+body.dark-theme .form-control,
+body.dark-theme .form-select {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+body.dark-theme .form-control:focus,
+body.dark-theme .form-select:focus {
+  background-color: #333;
+  color: #fff;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 0.2rem rgba(99,102,241,0.25);
+}
+
+body.dark-theme .table {
+  color: #e0e0e0;
+}
+
+/* Hero gradient */
+.hero-section {
+  background: linear-gradient(135deg, #f8faff 0%, #eef2ff 100%);
+  padding: 4rem 0;
+}
+
+body.dark-theme .hero-section {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+}
+
+/* Atölye kartları — numara rozeti */
+.card-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+/* Sonuç alanı min-height */
+#sonucAlan {
+  min-height: 80px;
+}
+
+/* Neden Katılmalısınız — renkli mini kartlar */
+.reason-card {
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
